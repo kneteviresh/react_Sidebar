@@ -1,0 +1,76 @@
+.sidebarLinks{
+    height:auto;
+    width: auto;
+}
+.sidebarLink-MainList{
+    list-style: none;
+}
+
+.sidebarLink-MainListItem{
+    height:auto;
+}
+
+.sidebarLink-SubListItem{
+    list-style: none;
+}
+.SubLinks{
+    height:35px;
+    width: 100%;
+    padding: 5px;
+    color:black;
+    text-decoration: none;
+    transition: all 1s;
+    cursor: pointer;
+}
+.SubLinks:hover,.SubLinks:focus,.SubLinks:active{
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    transition: all 1s;
+    border-left: 5px solid black;
+}
+
+.anchorLinks:hover,.anchorLinks:focus,.anchorLinks:active{
+    text-decoration: none;
+}
+
+hr {
+    margin: 5px;
+    border-top: 1px solid lightgrey;
+}
+
+.MainLinks{
+    height: 45px;
+    width: 100%;
+    text-align: left;
+    font-size: 25px;
+    padding: 10px 20px 10px 20px;
+    color: black;
+    cursor: pointer
+}
+
+.MainLinks:hover,.MainLinks:focus,.MainLinks:active{
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    transition: all 1s;
+    border-left: 5px solid black;
+}
+
+.sidebarLink-SubMenuList{
+    height: auto;
+    width: auto;
+    background-color: white;
+}
+
+.expandSubMenuIcon{
+    color:black;
+    font-size: 15px;
+    margin-left: 20px;
+}
+
+.expandSubMenuIcon:hover,.expandSubMenuIcon:focus,.expandSubMenuIcon:active{
+    color:black;
+    font-size: 25px;
+    transition: all 0.4s;
+}

@@ -1,0 +1,36 @@
+.sidebarMenu{
+    position: absolute;
+    width:400px;
+    left:-400px;
+    height: 100%;
+    background-color: white;
+    top:0px;
+    transition: all 1s;
+
+}
+
+.expandIcon{
+    position: absolute;
+    top:10px;
+    color: black;
+    left: 0px;
+    z-index: 5;
+    font-size: 35px;
+    display: none;
+    a{
+        color: black;
+    }
+}
+.expandIcon.show{
+    display: block;
+    color: black;
+}
+
+.sidebarMenu.show{
+        box-shadow: 4px 4px 4px 4px black;
+    left:0;
+    .expandIcon{
+        display: none
+    }
+}
+
