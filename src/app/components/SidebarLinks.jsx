@@ -18,7 +18,7 @@ class SidebarLinks extends Component {
         if (selectedSubMenu[index] == true)
             selectedSubMenu.fill(false);
         else {
-            selectedSubMenu[index] = true;
+            //selectedSubMenu[index] = true;
             selectedSubMenu.fill(false);
             selectedSubMenu[index] = true;
         }
@@ -51,7 +51,7 @@ class SidebarLinks extends Component {
         const listItems = links.map((link, key) =>
             <div key={key}>
                 <li className="sidebarLink-MainListItem" >
-                    <div>
+                    <div className="MainLinksAndExpandparent">
                         <a className="MainLinks anchorLinks" href="www.google.com"><strong>{link.mainLink}</strong>
                         </a>
                         <a className="expandSubMenuIcon" href="#" onClick={() => this.expandSubMenu(key)}>
