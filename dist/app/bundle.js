@@ -23648,8 +23648,7 @@
 	        var _this = _possibleConstructorReturn(this, (SidebarLinks.__proto__ || Object.getPrototypeOf(SidebarLinks)).call(this, props, context));
 	
 	        _this.state = {
-	            firstChildSublink: [],
-	            secondChildSublink: []
+	            firstChildSublink: []
 	        };
 	        _this.getlinks = _this.getlinks.bind(_this);
 	        _this.getSubLinks = _this.getSubLinks.bind(_this);
@@ -23659,16 +23658,24 @@
 	
 	    _createClass(SidebarLinks, [{
 	        key: 'expandSubMenu',
-	        value: function expandSubMenu(e) {
-	            console.log('clicked on expand ', e);
+	        value: function expandSubMenu(index) {
+	            var selectedSubMenu = this.state.firstChildSublink;
+	            if (selectedSubMenu[index] == true) selectedSubMenu.fill(false);else {
+	                //selectedSubMenu[index] = true;
+	                selectedSubMenu.fill(false);
+	                selectedSubMenu[index] = true;
+	            }
+	
+	            this.setState({
+	                firstChildSublink: selectedSubMenu
+	            });
 	        }
 	    }, {
 	        key: 'getSubLinks',
-	        value: function getSubLinks(subLinksItems) {
+	        value: function getSubLinks(subLinksItems, key) {
 	            var subLinks = subLinksItems;
 	            var subListItems;
 	            if (subLinks.length == 0) return;else {
-	                this.setState({});
 	                subListItems = subLinks.map(function (subLink, key) {
 	                    return _react2.default.createElement(
 	                        'li',
@@ -23711,24 +23718,26 @@
 	                        'li',
 	                        { className: 'sidebarLink-MainListItem' },
 	                        _react2.default.createElement(
-	                            'a',
-	                            { className: 'anchorLinks', href: '#' },
+	                            'div',
+	                            { className: 'MainLinksAndExpandparent' },
 	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'MainLinks' },
+	                                'a',
+	                                { className: 'MainLinks anchorLinks', href: 'www.google.com' },
 	                                _react2.default.createElement(
 	                                    'strong',
 	                                    null,
 	                                    link.mainLink
 	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'a',
+	                                { className: 'expandSubMenuIcon', href: '#', onClick: function onClick() {
+	                                        return _this2.expandSubMenu(key);
+	                                    } },
+	                                _react2.default.createElement('span', { className: 'glyphicon glyphicon-menu-down' })
 	                            )
 	                        ),
-	                        _this2.getSubLinks(link.subLinks)
-	                    ),
-	                    _react2.default.createElement(
-	                        'a',
-	                        { href: '#', onClick: _this2.expandSubMenu(key) },
-	                        _react2.default.createElement('span', { className: 'glyphicon glyphicon-menu-right' })
+	                        _this2.getSubLinks(link.subLinks, key)
 	                    )
 	                );
 	            });
@@ -23836,7 +23845,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".sidebarLinks {\n  height: auto;\n  width: auto; }\n\n.sidebarLink-MainList {\n  list-style: none; }\n\n.sidebarLink-MainListItem {\n  height: auto; }\n\n.sidebarLink-SubListItem {\n  list-style: none; }\n\n.SubLinks {\n  height: 35px;\n  width: 100%;\n  padding: 5px;\n  color: black;\n  text-decoration: none;\n  transition: all 1s;\n  cursor: pointer; }\n\n.SubLinks:hover, .SubLinks:focus, .SubLinks:active {\n  text-decoration: none;\n  background-color: black;\n  color: white;\n  transition: all 1s;\n  border-left: 5px solid black; }\n\n.anchorLinks:hover, .anchorLinks:focus, .anchorLinks:active {\n  text-decoration: none; }\n\nhr {\n  margin: 5px;\n  border-top: 1px solid lightgrey; }\n\n.MainLinks {\n  height: 45px;\n  width: 100%;\n  text-align: left;\n  font-size: 25px;\n  color: black;\n  cursor: pointer; }\n\n.MainLinks:hover, .MainLinks:focus, .MainLinks:active {\n  text-decoration: none;\n  background-color: black;\n  color: white;\n  transition: all 1s;\n  border-left: 5px solid black; }\n\n.sidebarLink-SubMenuList {\n  height: auto;\n  width: auto;\n  background-color: white; }\n", ""]);
+	exports.push([module.id, ".sidebarLinks {\n  height: auto;\n  width: auto; }\n\n.sidebarLink-MainList {\n  list-style: none; }\n\n.sidebarLink-MainListItem {\n  height: auto;\n  margin-bottom: 15px; }\n\n.sidebarLink-SubListItem {\n  list-style: none; }\n\n.SubLinks {\n  height: 35px;\n  width: 100%;\n  padding: 5px;\n  color: black;\n  text-decoration: none;\n  transition: all 1s;\n  cursor: pointer; }\n\n.SubLinks:hover, .SubLinks:focus, .SubLinks:active {\n  text-decoration: none;\n  background-color: black;\n  color: white;\n  transition: all 1s;\n  border-left: 5px solid black; }\n\n.anchorLinks:hover, .anchorLinks:focus, .anchorLinks:active {\n  text-decoration: none; }\n\nhr {\n  margin: 5px;\n  border-top: 1px solid lightgrey; }\n\n.MainLinks {\n  height: 45px;\n  width: 100%;\n  text-align: left;\n  font-size: 25px;\n  padding: 10px 20px 10px 20px;\n  color: black;\n  cursor: pointer; }\n\n.MainLinks:hover, .MainLinks:focus, .MainLinks:active {\n  text-decoration: none;\n  background-color: black;\n  color: white;\n  transition: all 0.5s;\n  border-left: 25px solid black; }\n\n.MainLinksAndExpandparent:hover .MainLinksAndExpandparent:active .MainLinksAndExpandparent:focus {\n  background-color: black; }\n\n.sidebarLink-SubMenuList {\n  height: auto;\n  width: auto;\n  background-color: white;\n  transition: all 1s; }\n\n.expandSubMenuIcon {\n  color: black;\n  font-size: 15px;\n  margin-left: 20px; }\n\n.expandSubMenuIcon:hover, .expandSubMenuIcon:focus, .expandSubMenuIcon:active {\n  color: black;\n  font-size: 25px;\n  transition: all 0.4s; }\n", ""]);
 	
 	// exports
 

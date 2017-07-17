@@ -15,11 +15,12 @@ class SidebarLinks extends Component {
 
     expandSubMenu(index) {
         var selectedSubMenu = this.state.firstChildSublink;
-        if (selectedSubMenu[index] == true)
-            selectedSubMenu.fill(false);
+        if (selectedSubMenu[index] == true){
+            //selectedSubMenu.fill(true);
+            selectedSubMenu[index] = false;}
         else {
             //selectedSubMenu[index] = true;
-            selectedSubMenu.fill(false);
+            //selectedSubMenu.fill(false);
             selectedSubMenu[index] = true;
         }
 
@@ -46,17 +47,18 @@ class SidebarLinks extends Component {
     }
 
     getlinks(linkItems) {
-        //debugger;
         const links = linkItems;
         const listItems = links.map((link, key) =>
             <div key={key}>
                 <li className="sidebarLink-MainListItem" >
                     <div className="MainLinksAndExpandparent">
+
+                        {link.subLinks.length? <a className="expandSubMenuIcon" href="#" onClick={() => this.expandSubMenu(key)}>
+                            <span className="glyphicon glyphicon-menu-right"></span>
+                        </a>:''}
                         <a className="MainLinks anchorLinks" href="www.google.com"><strong>{link.mainLink}</strong>
                         </a>
-                        <a className="expandSubMenuIcon" href="#" onClick={() => this.expandSubMenu(key)}>
-                            <span className="glyphicon glyphicon-menu-down"></span>
-                        </a>
+
                     </div>
                     {this.getSubLinks(link.subLinks, key)}
                 </li>
@@ -68,56 +70,10 @@ class SidebarLinks extends Component {
     }
 
     render() {
-        var links = [
-            {
-                mainLink: "Product Hierarchy",
-                href: "www.google.com",
-                onClick: "this.handleClick()",
-                subLinks: [
-                    {
-                        linkName: "link1",
-                        linkTO: "www.google.com",
-                        Click: "this.handleClick()"
-                    },
-                    {
-                        linkName: "link2",
-                        linkTO: "www.google.com",
-                        Click: "this.handleClick()"
-                    },
-                    {
-                        linkName: "link3",
-                        linkTO: "www.google.com",
-                        Click: "this.handleClick()"
-                    }
-                ]
-            },
-            {
-                mainLink: "TPNB",
-                href: "www.google.com",
-                onClick: "this.handleClick()",
-                subLinks: [
-                    {
-                        linkName: "link1",
-                        linkTO: "www.google.com",
-                        Click: "this.handleClick()"
-                    },
-                    {
-                        linkName: "link2",
-                        linkTO: "www.google.com",
-                        Click: "this.handleClick()"
-                    },
-                    {
-                        linkName: "link3",
-                        linkTO: "www.google.com",
-                        Click: "this.handleClick()"
-                    }
-                ]
-            }
-        ]
-
         return (
             <div className="sidebarLinks">
-                {this.getlinks(links)}
+                <h2><strong>QUICK LINKS</strong></h2>
+                {this.getlinks(this.props.dataForLinks)}
             </div>
         );
     }

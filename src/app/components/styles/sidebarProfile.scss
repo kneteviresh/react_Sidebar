@@ -5,11 +5,19 @@
     padding: 5px;
     text-align: center;
     .sidebarProfile-profileImage{
-        height: 120%;
+        height: 100%;
         width: 100%;
         .sidebarProfile-profileImage-image{
             width: 50%;
-            height: 60%;
+            height: 75%;
+            cursor: pointer;
+            transition: all 1s;
+        }
+        .sidebarProfile-profileImage-image.fullView{
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            transition: all 1s;
         }
         .sidebarProfile-userName{
             color:black;

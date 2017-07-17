@@ -4,6 +4,7 @@
 }
 .sidebarLink-MainList{
     list-style: none;
+    padding: 0px;
 }
 
 .sidebarLink-MainListItem{
@@ -47,7 +48,8 @@ hr {
     font-size: 25px;
     padding: 10px 20px 10px 20px;
     color: black;
-    cursor: pointer
+    cursor: pointer;
+    margin-left: 10px;
 }
 
 .MainLinks:hover,.MainLinks:focus,.MainLinks:active{

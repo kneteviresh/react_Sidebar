@@ -15,6 +15,22 @@ class Sidebar extends Component {
         this.toggleSidebar = this.toggleSidebar.bind(this);
     }
 
+    static defaultProps = {
+        top: 0,
+        fontSize: '35',
+        fontStyle: 'dark',
+        contentColor: 'black',
+        hoverColor:'black',
+        profileVisible:true,
+        ProfileName:'You have not passed Name',
+        hasReactRouterLinks:false,
+        hasContentToshow:false,
+        transition: 'scale'
+    }
+
+
+
+
     toggleSidebar() {
         this.setState({
             isSidebarVisible: !this.state.isSidebarVisible
@@ -22,6 +38,9 @@ class Sidebar extends Component {
     }
 
     render() {
+        const { top, fontSize, fontStyle, contentColor, hoverColor, profileVisible, profilePic,
+            ProfileName, hasReactRouterLinks, hasContentToshow } = this.props;
+
         return (
             <div>
                 <div className={`expandIcon ${(!this.state.isSidebarVisible) && 'show'}`}>
@@ -29,12 +48,12 @@ class Sidebar extends Component {
                         <span className="glyphicon glyphicon-menu-right"></span>
                     </a>
                 </div>
-                <div className={`sidebarMenu ${(this.state.isSidebarVisible) && 'show'}`} >
+                <div style={} className={`sidebarMenu ${(this.state.isSidebarVisible) && 'show'}`} >
                     <SidebarHeader closeSidebar={this.toggleSidebar} />
                     <hr />
                     <SidebarProfile />
                     <hr />
-                    <SidebarLinks />
+                    <SidebarLinks dataForLinks={this.props.dataForLinks} />
                     <hr />
                     <SidebarContent />
                     <hr />
