@@ -51,7 +51,7 @@ class SidebarLinks extends Component {
         const listItems = links.map((link, key) =>
             <div key={key}>
                 <li className="sidebarLink-MainListItem" >
-                    <div className="MainLinksAndExpandparent">
+                    <div style={{'font-size':(this.props.fontSize-10)+'px'}} className="MainLinksAndExpandparent">
 
                         {link.subLinks.length? <a className="expandSubMenuIcon" href="#" onClick={() => this.expandSubMenu(key)}>
                             <span className="glyphicon glyphicon-menu-right"></span>

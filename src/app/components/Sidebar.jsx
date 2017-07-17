@@ -12,24 +12,23 @@ class Sidebar extends Component {
         this.state = {
             isSidebarVisible: false
         }
+
+
         this.toggleSidebar = this.toggleSidebar.bind(this);
     }
+    
 
     static defaultProps = {
-        top: 0,
-        fontSize: '35',
+        top: 100,
+        fontSize: 35,
         fontStyle: 'dark',
         contentColor: 'black',
-        hoverColor:'black',
-        profileVisible:true,
-        ProfileName:'You have not passed Name',
-        hasReactRouterLinks:false,
-        hasContentToshow:false,
-        transition: 'scale'
+        hoverColor: 'black',
+        profileVisible: true,
+        ProfileName: 'You have not passed Name',
+        hasReactRouterLinks: false,
+        hasContentToshow: false,
     }
-
-
-
 
     toggleSidebar() {
         this.setState({
@@ -37,27 +36,29 @@ class Sidebar extends Component {
         });
     }
 
-    render() {
-        const { top, fontSize, fontStyle, contentColor, hoverColor, profileVisible, profilePic,
-            ProfileName, hasReactRouterLinks, hasContentToshow } = this.props;
 
+    render() {
+     const { top, fontSize, fontStyle, contentColor, hoverColor, profileVisible, profilePic,
+            ProfileName, hasReactRouterLinks, hasContentToshow } = this.props;
+        var expandButtonTop = top+10;
+        
         return (
             <div>
-                <div className={`expandIcon ${(!this.state.isSidebarVisible) && 'show'}`}>
+                <div style={{'top':expandButtonTop+'px'}} className={`expandIcon ${(!this.state.isSidebarVisible) && 'show'}`}>
                     <a href="#" onClick={this.toggleSidebar}>
                         <span className="glyphicon glyphicon-menu-right"></span>
                     </a>
                 </div>
-                <div style={} className={`sidebarMenu ${(this.state.isSidebarVisible) && 'show'}`} >
-                    <SidebarHeader closeSidebar={this.toggleSidebar} />
+                <div style={{'top':top+'px'}} className={`sidebarMenu ${(this.state.isSidebarVisible) && 'show'}`} >
+                    <SidebarHeader fontSize={fontSize} closeSidebar={this.toggleSidebar} />
                     <hr />
-                    <SidebarProfile />
+                    <SidebarProfile fontSize={fontSize}/>
                     <hr />
-                    <SidebarLinks dataForLinks={this.props.dataForLinks} />
+                    <SidebarLinks fontSize={fontSize} dataForLinks={this.props.dataForLinks} />
                     <hr />
-                    <SidebarContent />
+                    <SidebarContent fontSize={fontSize} />
                     <hr />
-                    <SidebarFooter />
+                    <SidebarFooter font={fontSize} />
                 </div>
             </div>
 

@@ -45,7 +45,7 @@ hr {
     height: 45px;
     width: 100%;
     text-align: left;
-    font-size: 25px;
+    //font-size: 25px;
     padding: 10px 20px 10px 20px;
     color: black;
     cursor: pointer;
@@ -57,7 +57,7 @@ hr {
     background-color: black;
     color: white;
     transition: all 0.5s;
-    border-left: 25px solid black;
+    border-left: 20px solid black;
 }
 
 .MainLinksAndExpandparent:hover .MainLinksAndExpandparent:active .MainLinksAndExpandparent:focus{
@@ -73,7 +73,7 @@ hr {
 
 .expandSubMenuIcon{
     color:black;
-    font-size: 15px;
+    //font-size: 15px;
     margin-left: 20px;
 }
 

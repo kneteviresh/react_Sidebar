@@ -60,7 +60,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <Sidebar top={'100px'} dataForLinks = {dataForLinks}/>
+        <Sidebar dataForLinks = {dataForLinks}/>
       </div>
     );
   }
