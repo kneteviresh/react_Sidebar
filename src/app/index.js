@@ -1,72 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Sidebar from './components/Sidebar.jsx';
+import App from './App.jsx';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-class App extends React.Component {
-  render() {
-    var  dataForLinks = 
-    [
-            {
-                mainLink: "Product Hierarchy",
-                href: "www.google.com",
-                onClick: "this.handleClick()",
-                subLinks: [
-                    {
-                        linkName: "link1",
-                        linkTO: "www.google.com",
-                        Click: "this.handleClick()"
-                    },
-                    {
-                        linkName: "link2",
-                        linkTO: "www.google.com",
-                        Click: "this.handleClick()"
-                    },
-                    {
-                        linkName: "link3",
-                        linkTO: "www.google.com",
-                        Click: "this.handleClick()"
-                    }
-                ]
-            },
-            {
-                mainLink: "tpnb",
-                href: "www.google.com",
-                onClick: "this.handleClick()",
-                subLinks: [
-                    {
-                        linkName: "link1",
-                        linkTO: "www.google.com",
-                        Click: "this.handleClick()"
-                    },
-                    {
-                        linkName: "link2",
-                        linkTO: "www.google.com",
-                        Click: "this.handleClick()"
-                    },
-                    {
-                        linkName: "link3",
-                        linkTO: "www.google.com",
-                        Click: "this.handleClick()"
-                    }
-                ]
-            },
-            {
-                mainLink: "Search by supplier",
-                href: "www.google.com",
-                onClick: "this.handleClick()",
-                subLinks: []
-            }
-    ]
 
-    return (
-      <div>
-        <Sidebar dataForLinks = {dataForLinks}/>
-      </div>
-    );
-  }
-};
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('app')
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>,
+    document.getElementById('app')
 );

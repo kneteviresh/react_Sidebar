@@ -5,7 +5,7 @@ class SidebarContent extends Component {
         return (
             <div>
                 <h2><strong>DESCRIPTION</strong></h2>
-                <blockquote style={{'font-size':(this.props.fontSize-20)+'px'}}> hi all ,
+                <blockquote style={{'fontSize':(this.props.fontSize-20)+'px'}}> hi all ,
                     this is react-responsive-sidebar-menu
 
                     Features involved:

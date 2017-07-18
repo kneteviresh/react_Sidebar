@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './styles/sidebarLinks.scss';
+import { Link } from 'react-router-dom';
 
 class SidebarLinks extends Component {
 
@@ -15,9 +16,10 @@ class SidebarLinks extends Component {
 
     expandSubMenu(index) {
         var selectedSubMenu = this.state.firstChildSublink;
-        if (selectedSubMenu[index] == true){
+        if (selectedSubMenu[index] == true) {
             //selectedSubMenu.fill(true);
-            selectedSubMenu[index] = false;}
+            selectedSubMenu[index] = false;
+        }
         else {
             //selectedSubMenu[index] = true;
             //selectedSubMenu.fill(false);
@@ -51,14 +53,18 @@ class SidebarLinks extends Component {
         const listItems = links.map((link, key) =>
             <div key={key}>
                 <li className="sidebarLink-MainListItem" >
-                    <div style={{'font-size':(this.props.fontSize-10)+'px'}} className="MainLinksAndExpandparent">
+                    <div style={{ 'fontSize': (this.props.fontSize - 10) + 'px' }} className="MainLinksAndExpandparent">
 
-                        {link.subLinks.length? <a className="expandSubMenuIcon" href="#" onClick={() => this.expandSubMenu(key)}>
+                        {link.subLinks.length ? <a className="expandSubMenuIcon" href="#" onClick={() => this.expandSubMenu(key)}>
                             <span className="glyphicon glyphicon-menu-right"></span>
-                        </a>:''}
-                        <a className="MainLinks anchorLinks" href="www.google.com"><strong>{link.mainLink}</strong>
-                        </a>
+                        </a> : ''}
 
+                        {this.props.hasReactRouterLinks ?
+                            <Link className="MainLinks anchorLinks" to='/india' >
+                                <strong>{link.mainLink}</strong>
+                            </Link> :
+                            <a className="MainLinks anchorLinks" href="www.google.com"><strong>{link.mainLink}</strong>
+                            </a>}
                     </div>
                     {this.getSubLinks(link.subLinks, key)}
                 </li>
@@ -72,6 +78,7 @@ class SidebarLinks extends Component {
     render() {
         return (
             <div className="sidebarLinks">
+
                 <h2><strong>QUICK LINKS</strong></h2>
                 {this.getlinks(this.props.dataForLinks)}
             </div>

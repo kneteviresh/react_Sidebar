@@ -12,8 +12,7 @@ class Sidebar extends Component {
         this.state = {
             isSidebarVisible: false
         }
-
-
+        
         this.toggleSidebar = this.toggleSidebar.bind(this);
     }
     
@@ -54,7 +53,7 @@ class Sidebar extends Component {
                     <hr />
                     <SidebarProfile fontSize={fontSize}/>
                     <hr />
-                    <SidebarLinks fontSize={fontSize} dataForLinks={this.props.dataForLinks} />
+                    <SidebarLinks hasReactRouterLinks={hasReactRouterLinks} fontSize={fontSize} dataForLinks={this.props.dataForLinks} />
                     <hr />
                     <SidebarContent fontSize={fontSize} />
                     <hr />
