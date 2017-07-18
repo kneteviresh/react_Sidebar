@@ -37,7 +37,7 @@ class SidebarLinks extends Component {
         if (subLinks.length == 0) return;
         else {
             subListItems = subLinks.map((subLink, key) =>
-                <li className="sidebarLink-SubListItem" key={key}>
+                <li style={{ 'fontSize': (this.props.fontSize - 10) + 'px' }} className="sidebarLink-SubListItem" key={key}>
                     <a className="anchorLinks" href="#"><div className="SubLinks"><strong>{subLink.linkName}</strong></div></a>
                 </li>
             )
@@ -53,7 +53,7 @@ class SidebarLinks extends Component {
         const listItems = links.map((link, key) =>
             <div key={key}>
                 <li className="sidebarLink-MainListItem" >
-                    <div style={{ 'fontSize': (this.props.fontSize - 10) + 'px' }} className="MainLinksAndExpandparent">
+                    <div style={{ 'fontSize': (this.props.fontSize - 4) + 'px' }} className="MainLinksAndExpandparent">
 
                         {link.subLinks.length ? <a className="expandSubMenuIcon" href="#" onClick={() => this.expandSubMenu(key)}>
                             <span className="glyphicon glyphicon-menu-right"></span>

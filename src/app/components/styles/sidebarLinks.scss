@@ -1,6 +1,7 @@
 .sidebarLinks{
     height:auto;
     width: auto;
+    margin: 15px;
 }
 .sidebarLink-MainList{
     list-style: none;
@@ -69,6 +70,7 @@ hr {
     width: auto;
     background-color: white;
     transition: all 1s;
+    margin: 10px 0px 15px 20px;
 }
 
 .expandSubMenuIcon{
@@ -77,8 +79,8 @@ hr {
     margin-left: 20px;
 }
 
-.expandSubMenuIcon:hover,.expandSubMenuIcon:focus,.expandSubMenuIcon:active{
-    color:black;
-    font-size: 25px;
-    transition: all 0.4s;
-}
+// .expandSubMenuIcon:hover,.expandSubMenuIcon:focus,.expandSubMenuIcon:active{
+//     color:black;
+//     font-size: 25px;
+//     transition: all 0.4s;
+// }

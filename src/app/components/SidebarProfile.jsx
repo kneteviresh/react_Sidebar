@@ -22,19 +22,23 @@ class SidebarProfile extends Component {
             'height': '100%',
             'width': '100%'
         }
-        return (
-            <div className="sidebarProfile">
-                <div className="sidebarProfile-profileImage">
-                    <img onClick={this.toggleImageView}
-                        className={`sidebarProfile-profileImage-image ${(this.state.imageFullView ? 'fullView' : 'img-circle')}`}
-                        src={profilePic}
-                        alt="profile picture" />
-                    {!this.state.imageFullView && <div style={{'fontSize':(this.props.fontSize-15)+'px'}} className="sidebarProfile-userName">
-                        Viresh Nete
-                    </div>}
+        if (this.props.SidebarProfileProps.profileVisible)
+            return (
+                <div className="sidebarProfile">
+                    <div className="sidebarProfile-profileImage">
+                        <img onClick={this.toggleImageView}
+                            className={`sidebarProfile-profileImage-image ${(this.state.imageFullView ? 'fullView' : 'img-circle')}`}
+                            src={profilePic}
+                            alt="profile picture" />
+                        {/* <div className="imageClickMessage">click to expand</div> */}
+                        {!this.state.imageFullView && <div style={{ 'fontSize': (this.props.SidebarProfileProps.fontSize) + 'px' }} className="sidebarProfile-userName">
+                            {this.props.SidebarProfileProps.ProfileName}
+                        </div>}
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        else
+            return null
     }
 }
 
