@@ -14,9 +14,11 @@ class SidebarLinks extends Component {
         this.expandSubMenu = this.expandSubMenu.bind(this);
     }
 
-    handleMainLinkClick(clickedLink){
-        if(this.props.sidebarLinksProps.onLinkItemClick)
-            this.props.sidebarLinksProps.onLinkItemClick(clickedLink)
+    handleMainLinkClick(clickedLink,e){
+        console.log('inside onclick')
+        // if(this.props.sidebarLinksProps.onLinkItemClick)
+        //     this.props.sidebarLinksProps.onLinkItemClick(clickedLink)
+        return true;
     }
 
     expandSubMenu(index) {
@@ -45,8 +47,8 @@ class SidebarLinks extends Component {
                 <li style={{ 'fontSize': (this.props.sidebarLinksProps.fontSize - 10) + 'px' }} className="sidebarLink-SubListItem" key={key}>
                     <div className="">
                         {this.props.sidebarLinksProps.hasReactRouterLinks ?
-                            <Link className="subLinks anchorLinks" to='#' >
-                                <strong>{subLink.linkTo}</strong>
+                            <Link className="SubLinks anchorLinks" to='/dummy' >
+                                <strong>{subLink.subLink}</strong>
                             </Link> :
                             <a className="SubLinks anchorLinks" onClick={()=>this.handleMainLinkClick(subLink)} href="#"><strong>{subLink.subLink}</strong>
                             </a>}
@@ -72,10 +74,10 @@ class SidebarLinks extends Component {
                         </a> : ''}
 
                         {this.props.sidebarLinksProps.hasReactRouterLinks ?
-                            <Link className="MainLinks anchorLinks" to='#' >
+                            <Link className="MainLinks anchorLinks" to='/dummy' >
                                 <strong>{link.mainLink}</strong>
                             </Link> :
-                            <a className="MainLinks anchorLinks" onClick={()=>this.handleMainLinkClick(link)} href="#"><strong>{link.mainLink}</strong>
+                            <a className="MainLinks anchorLinks" onClick={()=>this.handleMainLinkClick(link)} href="/dummy"><strong>{link.mainLink}</strong>
                             </a>}
                     </div>
                     {this.getSubLinks(link.subLinks, key)}
@@ -91,6 +93,7 @@ class SidebarLinks extends Component {
         return (
             <div className="sidebarLinks">
                 {this.getlinks(this.props.sidebarLinksProps.dataForLinks)}
+                <hr />
             </div>
         );
     }

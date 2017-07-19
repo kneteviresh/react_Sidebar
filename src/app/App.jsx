@@ -6,8 +6,8 @@ import profileImage from '../images/kat.jpg';
 class App extends React.Component {
 
 
-    handleMenuItemClick(clickedLink){
-        console.log('clicked on ',clickedLink)
+    handleMenuItemClick(clickedLink) {
+        console.log('clicked on ', clickedLink)
     }
 
     render() {

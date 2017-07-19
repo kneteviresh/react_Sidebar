@@ -21,6 +21,14 @@
         color: black;
     }
 }
+
+@media only screen and (max-width:400px){
+    .sidebarMenu.show{
+        width: 100%
+    }
+}
+
+
 .expandIcon.show{
     display: block;
     color: black;

@@ -20,6 +20,7 @@ class SidebarHeader extends Component {
                         </a>
                     </div>
                 </div>
+                <hr />
             </div>
         );
     }

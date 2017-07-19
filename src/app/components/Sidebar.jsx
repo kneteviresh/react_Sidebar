@@ -18,7 +18,7 @@ class Sidebar extends Component {
     }
 
     static defaultProps = {
-        top: 50,
+        top: 100,
         fontSize: 25,
         fontStyle: 'dark',
         contentColor: 'black',
@@ -26,11 +26,11 @@ class Sidebar extends Component {
         profileVisible: true,
         ProfileName: 'Viresh Nete',
         hasReactRouterLinks: false,
-        hasContentToshow: false,
+        descriptionVisible:false,
         expandIconStyle: 'menu-hamburger',
         headerBackgroundColor: 'white',
         sidebarTitle: 'React sliding sidebar',
-        descriptionContentHTML: <p>hello friends welcome to india</p>,
+        descriptionContent: <p>hello friends welcome to india</p>,
         orderOfContents: {
             profile: 1,
             description: 2,
@@ -69,8 +69,8 @@ class Sidebar extends Component {
     render() {
         var { top, fontSize, fontStyle, contentColor, hoverColor, profileVisible, profilePic,
             ProfileName, hasReactRouterLinks, hasContentToshow, expandIconStyle,
-            headerBackgroundColor, sidebarTitle, descriptionContentHTML, orderOfContents,
-            profileImage, dataForLinks,onLinkItemClick } = this.props;
+            headerBackgroundColor, sidebarTitle, descriptionContent, orderOfContents,
+            profileImage, dataForLinks, onLinkItemClick,descriptionVisible } = this.props;
 
         const sidebarHeaderProps = {
             fontSize: fontSize,
@@ -80,7 +80,8 @@ class Sidebar extends Component {
 
         const sidebarContentProps = {
             fontSize: fontSize,
-            descriptionContentHTML: descriptionContentHTML
+            descriptionContent: descriptionContent,
+            descriptionVisible:descriptionVisible
         }
 
         const SidebarProfileProps = {
@@ -95,7 +96,7 @@ class Sidebar extends Component {
             hasReactRouterLinks: hasReactRouterLinks,
             fontSize: fontSize,
             dataForLinks: dataForLinks,
-            onLinkItemClick:onLinkItemClick
+            onLinkItemClick: onLinkItemClick
         }
 
         var validOrder = this.validateOrderOfContent(orderOfContents)
@@ -106,9 +107,8 @@ class Sidebar extends Component {
                 links: 3
             }
         }
-
         var expandButtonTop = top + 10;
-
+        var heightOfSidebar = 100-((top*100)/window.innerHeight);
         return (
             <div>
                 <div style={{ 'top': expandButtonTop + 'px' }} className={`expandIcon ${(!this.state.isSidebarVisible) && 'show'}`}>
@@ -116,26 +116,26 @@ class Sidebar extends Component {
                         <span className={`glyphicon glyphicon-${expandIconStyle}`}></span>
                     </a>
                 </div>
-                <div style={{ 'top': top + 'px' }} className={`sidebarMenu ${(this.state.isSidebarVisible) && 'show'}`} >
+                <div style={{ 'top': top + 'px','height':heightOfSidebar+'%' }} className={`sidebarMenu ${(this.state.isSidebarVisible) && 'show'}`} >
                     <SidebarHeader sidebarHeaderProps={sidebarHeaderProps} closeSidebar={this.toggleSidebar} >
                     </SidebarHeader>
-                    <hr />
+                    
                     {orderOfContents.profile == 1 ? <SidebarProfile SidebarProfileProps={SidebarProfileProps}></SidebarProfile> :
                         orderOfContents.description == 1 ? <SidebarDescription sidebarContentProps={sidebarContentProps}>
                         </SidebarDescription> :
-                            <SidebarLinks sidebarLinksProps={sidebarLinksProps}><hr />
+                            <SidebarLinks sidebarLinksProps={sidebarLinksProps}>
                             </SidebarLinks>}
-                    <hr />
+                    
                     {orderOfContents.profile == 2 ? <SidebarProfile SidebarProfileProps={SidebarProfileProps}></SidebarProfile> :
                         orderOfContents.description == 2 ? <SidebarDescription sidebarContentProps={sidebarContentProps}>
                         </SidebarDescription> :
-                            <SidebarLinks sidebarLinksProps={sidebarLinksProps}><hr />
+                            <SidebarLinks sidebarLinksProps={sidebarLinksProps}>
                             </SidebarLinks>}
-                    <hr />
+                    
                     {orderOfContents.profile == 3 ? <SidebarProfile SidebarProfileProps={SidebarProfileProps}></SidebarProfile> :
                         orderOfContents.description == 3 ? <SidebarDescription sidebarContentProps={sidebarContentProps}>
                         </SidebarDescription> :
-                            <SidebarLinks sidebarLinksProps={sidebarLinksProps}><hr />
+                            <SidebarLinks sidebarLinksProps={sidebarLinksProps}>
                             </SidebarLinks>}
 
 

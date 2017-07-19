@@ -35,6 +35,7 @@ class SidebarProfile extends Component {
                             {this.props.SidebarProfileProps.ProfileName}
                         </div>}
                     </div>
+                    <hr />
                 </div>
             );
         else
