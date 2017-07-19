@@ -61,18 +61,14 @@
 	
 	var _App2 = _interopRequireDefault(_App);
 	
-	var _Sidebar = __webpack_require__(/*! ./components/Sidebar.jsx */ 185);
-	
-	var _Sidebar2 = _interopRequireDefault(_Sidebar);
-	
 	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 197);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	_reactDom2.default.render(_react2.default.createElement(
-	   _reactRouterDom.BrowserRouter,
-	   null,
-	   _react2.default.createElement(_reactRouterDom.Route, { path: "/", Component: _App2.default })
+	    _reactRouterDom.BrowserRouter,
+	    null,
+	    _react2.default.createElement(_App2.default, null)
 	), document.getElementById('app'));
 
 /***/ }),
@@ -22769,7 +22765,6 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.App = undefined;
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -22781,6 +22776,14 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
+	var _Sidebar = __webpack_require__(/*! ./components/Sidebar.jsx */ 185);
+	
+	var _Sidebar2 = _interopRequireDefault(_Sidebar);
+	
+	var _kat = __webpack_require__(/*! ../images/kat.jpg */ 243);
+	
+	var _kat2 = _interopRequireDefault(_kat);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22789,7 +22792,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var App = exports.App = function (_React$Component) {
+	var App = function (_React$Component) {
 	    _inherits(App, _React$Component);
 	
 	    function App() {
@@ -22799,6 +22802,11 @@
 	    }
 	
 	    _createClass(App, [{
+	        key: "handleMenuItemClick",
+	        value: function handleMenuItemClick(clickedLink) {
+	            console.log('clicked on ', clickedLink);
+	        }
+	    }, {
 	        key: "render",
 	        value: function render() {
 	            var dataForLinks = [{
@@ -22806,15 +22814,15 @@
 	                href: "www.google.com",
 	                onClick: "this.handleClick()",
 	                subLinks: [{
-	                    linkName: "link1",
+	                    subLink: "link1",
 	                    linkTO: "www.google.com",
 	                    Click: "this.handleClick()"
 	                }, {
-	                    linkName: "link2",
+	                    subLink: "link2",
 	                    linkTO: "www.google.com",
 	                    Click: "this.handleClick()"
 	                }, {
-	                    linkName: "link3",
+	                    subLink: "link3",
 	                    linkTO: "www.google.com",
 	                    Click: "this.handleClick()"
 	                }]
@@ -22823,15 +22831,15 @@
 	                href: "www.google.com",
 	                onClick: "this.handleClick()",
 	                subLinks: [{
-	                    linkName: "link1",
+	                    subLink: "link1",
 	                    linkTO: "www.google.com",
 	                    Click: "this.handleClick()"
 	                }, {
-	                    linkName: "link2",
+	                    subLink: "link2",
 	                    linkTO: "www.google.com",
 	                    Click: "this.handleClick()"
 	                }, {
-	                    linkName: "link3",
+	                    subLink: "link3",
 	                    linkTO: "www.google.com",
 	                    Click: "this.handleClick()"
 	                }]
@@ -22845,7 +22853,7 @@
 	            return _react2.default.createElement(
 	                "div",
 	                null,
-	                _react2.default.createElement(Sidebar, { dataForLinks: dataForLinks })
+	                _react2.default.createElement(_Sidebar2.default, { onLinkItemClick: this.handleMenuItemClick, profileImage: _kat2.default, dataForLinks: dataForLinks })
 	            );
 	        }
 	    }]);
@@ -22854,6 +22862,8 @@
 	}(_react2.default.Component);
 	
 	;
+	
+	exports.default = App;
 
 /***/ }),
 /* 185 */
@@ -22884,17 +22894,21 @@
 	
 	var _SidebarLinks2 = _interopRequireDefault(_SidebarLinks);
 	
-	var _SidebarContent = __webpack_require__(/*! ./SidebarContent.jsx */ 237);
+	var _sidebarDescription = __webpack_require__(/*! ./sidebarDescription.jsx */ 237);
 	
-	var _SidebarContent2 = _interopRequireDefault(_SidebarContent);
+	var _sidebarDescription2 = _interopRequireDefault(_sidebarDescription);
 	
 	var _SidebarProfile = __webpack_require__(/*! ./SidebarProfile.jsx */ 238);
 	
 	var _SidebarProfile2 = _interopRequireDefault(_SidebarProfile);
 	
-	var _SidebarFooter = __webpack_require__(/*! ./SidebarFooter.jsx */ 242);
+	var _SidebarFooter = __webpack_require__(/*! ./SidebarFooter.jsx */ 241);
 	
 	var _SidebarFooter2 = _interopRequireDefault(_SidebarFooter);
+	
+	var _profilePic = __webpack_require__(/*! ../../images/profilePic.jpg */ 242);
+	
+	var _profilePic2 = _interopRequireDefault(_profilePic);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -22915,7 +22929,6 @@
 	        _this.state = {
 	            isSidebarVisible: false
 	        };
-	
 	        _this.toggleSidebar = _this.toggleSidebar.bind(_this);
 	        return _this;
 	    }
@@ -22926,6 +22939,24 @@
 	            this.setState({
 	                isSidebarVisible: !this.state.isSidebarVisible
 	            });
+	        }
+	    }, {
+	        key: 'validateOrderOfContent',
+	        value: function validateOrderOfContent(orderOfContent) {
+	            var arr = [orderOfContent.profile, orderOfContent.description, orderOfContent.links];
+	            var valid = true;
+	            for (var i = 0; i < arr.length; i++) {
+	                if (arr[i] > 0 && arr[i] < 4) {
+	                    for (var j = i + 1; j < arr.length; j++) {
+	                        if (arr[i] == arr[j]) valid = false;
+	                        break;
+	                    }
+	                } else {
+	                    valid = false;
+	                    break;
+	                }
+	            }
+	            return valid;
 	        }
 	    }, {
 	        key: 'render',
@@ -22940,7 +22971,50 @@
 	                profilePic = _props.profilePic,
 	                ProfileName = _props.ProfileName,
 	                hasReactRouterLinks = _props.hasReactRouterLinks,
-	                hasContentToshow = _props.hasContentToshow;
+	                hasContentToshow = _props.hasContentToshow,
+	                expandIconStyle = _props.expandIconStyle,
+	                headerBackgroundColor = _props.headerBackgroundColor,
+	                sidebarTitle = _props.sidebarTitle,
+	                descriptionContentHTML = _props.descriptionContentHTML,
+	                orderOfContents = _props.orderOfContents,
+	                profileImage = _props.profileImage,
+	                dataForLinks = _props.dataForLinks,
+	                onLinkItemClick = _props.onLinkItemClick;
+	
+	
+	            var sidebarHeaderProps = {
+	                fontSize: fontSize,
+	                headerBackgroundColor: headerBackgroundColor,
+	                sidebarTitle: sidebarTitle
+	            };
+	
+	            var sidebarContentProps = {
+	                fontSize: fontSize,
+	                descriptionContentHTML: descriptionContentHTML
+	            };
+	
+	            var SidebarProfileProps = {
+	                fontSize: fontSize,
+	                profileVisible: profileVisible,
+	                ProfileName: ProfileName,
+	                profileImage: profileImage
+	            };
+	
+	            var sidebarLinksProps = {
+	                hasReactRouterLinks: hasReactRouterLinks,
+	                fontSize: fontSize,
+	                dataForLinks: dataForLinks,
+	                onLinkItemClick: onLinkItemClick
+	            };
+	
+	            var validOrder = this.validateOrderOfContent(orderOfContents);
+	            if (!validOrder) {
+	                orderOfContents = {
+	                    profile: 1,
+	                    description: 2,
+	                    links: 3
+	                };
+	            }
 	
 	            var expandButtonTop = top + 10;
 	
@@ -22953,20 +23027,31 @@
 	                    _react2.default.createElement(
 	                        'a',
 	                        { href: '#', onClick: this.toggleSidebar },
-	                        _react2.default.createElement('span', { className: 'glyphicon glyphicon-menu-right' })
+	                        _react2.default.createElement('span', { className: 'glyphicon glyphicon-' + expandIconStyle })
 	                    )
 	                ),
 	                _react2.default.createElement(
 	                    'div',
 	                    { style: { 'top': top + 'px' }, className: 'sidebarMenu ' + (this.state.isSidebarVisible && 'show') },
-	                    _react2.default.createElement(_SidebarHeader2.default, { fontSize: fontSize, closeSidebar: this.toggleSidebar }),
+	                    _react2.default.createElement(_SidebarHeader2.default, { sidebarHeaderProps: sidebarHeaderProps, closeSidebar: this.toggleSidebar }),
 	                    _react2.default.createElement('hr', null),
-	                    _react2.default.createElement(_SidebarProfile2.default, { fontSize: fontSize }),
+	                    orderOfContents.profile == 1 ? _react2.default.createElement(_SidebarProfile2.default, { SidebarProfileProps: SidebarProfileProps }) : orderOfContents.description == 1 ? _react2.default.createElement(_sidebarDescription2.default, { sidebarContentProps: sidebarContentProps }) : _react2.default.createElement(
+	                        _SidebarLinks2.default,
+	                        { sidebarLinksProps: sidebarLinksProps },
+	                        _react2.default.createElement('hr', null)
+	                    ),
 	                    _react2.default.createElement('hr', null),
-	                    _react2.default.createElement(_SidebarLinks2.default, { hasReactRouterLinks: hasReactRouterLinks, fontSize: fontSize, dataForLinks: this.props.dataForLinks }),
+	                    orderOfContents.profile == 2 ? _react2.default.createElement(_SidebarProfile2.default, { SidebarProfileProps: SidebarProfileProps }) : orderOfContents.description == 2 ? _react2.default.createElement(_sidebarDescription2.default, { sidebarContentProps: sidebarContentProps }) : _react2.default.createElement(
+	                        _SidebarLinks2.default,
+	                        { sidebarLinksProps: sidebarLinksProps },
+	                        _react2.default.createElement('hr', null)
+	                    ),
 	                    _react2.default.createElement('hr', null),
-	                    _react2.default.createElement(_SidebarContent2.default, { fontSize: fontSize }),
-	                    _react2.default.createElement('hr', null),
+	                    orderOfContents.profile == 3 ? _react2.default.createElement(_SidebarProfile2.default, { SidebarProfileProps: SidebarProfileProps }) : orderOfContents.description == 3 ? _react2.default.createElement(_sidebarDescription2.default, { sidebarContentProps: sidebarContentProps }) : _react2.default.createElement(
+	                        _SidebarLinks2.default,
+	                        { sidebarLinksProps: sidebarLinksProps },
+	                        _react2.default.createElement('hr', null)
+	                    ),
 	                    _react2.default.createElement(_SidebarFooter2.default, { font: fontSize })
 	                )
 	            );
@@ -22977,15 +23062,29 @@
 	}(_react.Component);
 	
 	Sidebar.defaultProps = {
-	    top: 100,
-	    fontSize: 35,
+	    top: 50,
+	    fontSize: 25,
 	    fontStyle: 'dark',
 	    contentColor: 'black',
 	    hoverColor: 'black',
 	    profileVisible: true,
-	    ProfileName: 'You have not passed Name',
+	    ProfileName: 'Viresh Nete',
 	    hasReactRouterLinks: false,
-	    hasContentToshow: false
+	    hasContentToshow: false,
+	    expandIconStyle: 'menu-hamburger',
+	    headerBackgroundColor: 'white',
+	    sidebarTitle: 'React sliding sidebar',
+	    descriptionContentHTML: _react2.default.createElement(
+	        'p',
+	        null,
+	        'hello friends welcome to india'
+	    ),
+	    orderOfContents: {
+	        profile: 1,
+	        description: 2,
+	        links: 3
+	    },
+	    profileImage: _profilePic2.default
 	};
 	exports.default = Sidebar;
 
@@ -23035,7 +23134,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".sidebarMenu {\n  position: absolute;\n  width: 400px;\n  left: -400px;\n  height: 100%;\n  background-color: white;\n  top: 100px;\n  transition: all 1s;\n  overflow: scroll; }\n\n.expandIcon {\n  position: absolute;\n  top: 110px;\n  color: black;\n  left: 0px;\n  z-index: 5;\n  font-size: 35px;\n  display: none; }\n  .expandIcon a {\n    color: black; }\n\n.expandIcon.show {\n  display: block;\n  color: black; }\n\n.sidebarMenu.show {\n  box-shadow: 4px 4px 4px 4px black;\n  left: 0; }\n  .sidebarMenu.show .expandIcon {\n    display: none; }\n", ""]);
+	exports.push([module.id, ".sidebarMenu {\n  position: absolute;\n  width: 400px;\n  left: -400px;\n  height: 100%;\n  background-color: white;\n  top: 100px;\n  transition: all 1s;\n  overflow: scroll; }\n\n.expandIcon {\n  position: absolute;\n  color: black;\n  left: 0px;\n  z-index: 5;\n  font-size: 35px;\n  display: none; }\n  .expandIcon a {\n    color: black; }\n\n.expandIcon.show {\n  display: block;\n  color: black; }\n\n.sidebarMenu.show {\n  box-shadow: 2px 2px 2px 2px lightgray;\n  left: 0; }\n  .sidebarMenu.show .expandIcon {\n    display: none; }\n", ""]);
 	
 	// exports
 
@@ -23626,19 +23725,23 @@
 	    _createClass(SidebarHeader, [{
 	        key: 'render',
 	        value: function render() {
+	            var headerStyle = {
+	                'fontSize': this.props.sidebarHeaderProps.fontSize + 'px',
+	                'backgroundColor': this.props.sidebarHeaderProps.headerBackgroundColor
+	            };
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'sidebarHeade' },
+	                { style: headerStyle, className: 'sidebarHeader' },
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'row' },
 	                    _react2.default.createElement(
 	                        'div',
-	                        { style: { 'fontSize': this.props.fontSize + 'px' }, className: 'center sidebarHeader-text' },
+	                        { className: 'center sidebarHeader-text' },
 	                        _react2.default.createElement(
 	                            'strong',
 	                            null,
-	                            'SIDEBAR TITLE'
+	                            this.props.sidebarHeaderProps.sidebarTitle
 	                        )
 	                    ),
 	                    _react2.default.createElement(
@@ -23646,7 +23749,7 @@
 	                        null,
 	                        _react2.default.createElement(
 	                            'a',
-	                            { style: { 'fontSize': this.props.fontSize + 'px' }, className: 'center sidebarHeader-close-button', onClick: this.props.closeSidebar, href: '#' },
+	                            { style: { 'fontSize': this.props.sidebarHeaderProps.fontSize + 'px' }, className: 'center sidebarHeader-close-button', onClick: this.props.closeSidebar, href: '#' },
 	                            _react2.default.createElement('span', { className: 'glyphicon glyphicon-menu-left' })
 	                        )
 	                    )
@@ -23706,7 +23809,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".sidebarHeade {\n  height: 50px;\n  font-size: 30px;\n  width: 100%;\n  text-align: center;\n  position: initial;\n  font-family: sans-serif;\n  margin-top: 10px;\n  transition: all 1s; }\n  .sidebarHeade .sidebarHeader-text {\n    position: absolute;\n    left: 10px;\n    padding: 2px; }\n  .sidebarHeade .sidebarHeader-close-button {\n    color: black;\n    font-size: 35px;\n    text-decoration: none;\n    position: absolute;\n    right: 0px;\n    padding: 0 10px 0 10px; }\n  .sidebarHeade .sidebarHeader-close-button:hover .sidebarHeader-close-button:active .sidebarHeader-close-button:focus {\n    text-decoration: none;\n    color: black; }\n", ""]);
+	exports.push([module.id, ".sidebarHeader {\n  height: auto;\n  width: 80%;\n  position: initial;\n  font-family: sans-serif;\n  transition: all 1s;\n  margin: 5px 25px; }\n  .sidebarHeader .sidebarHeader-text {\n    left: 10px;\n    margin: 10px; }\n  .sidebarHeader .sidebarHeader-close-button {\n    color: black;\n    font-size: 35px;\n    text-decoration: none;\n    position: absolute;\n    right: 0px;\n    top: 10px;\n    padding: 5px 10px 0 10px; }\n  .sidebarHeader .sidebarHeader-close-button:hover .sidebarHeader-close-button:active .sidebarHeader-close-button:focus {\n    text-decoration: none;\n    color: black; }\n", ""]);
 	
 	// exports
 
@@ -23760,6 +23863,11 @@
 	    }
 	
 	    _createClass(SidebarLinks, [{
+	        key: 'handleMainLinkClick',
+	        value: function handleMainLinkClick(clickedLink) {
+	            if (this.props.sidebarLinksProps.onLinkItemClick) this.props.sidebarLinksProps.onLinkItemClick(clickedLink);
+	        }
+	    }, {
 	        key: 'expandSubMenu',
 	        value: function expandSubMenu(index) {
 	            var selectedSubMenu = this.state.firstChildSublink;
@@ -23779,23 +23887,35 @@
 	    }, {
 	        key: 'getSubLinks',
 	        value: function getSubLinks(subLinksItems, key) {
+	            var _this2 = this;
+	
 	            var subLinks = subLinksItems;
 	            var subListItems;
 	            if (subLinks.length == 0) return;else {
 	                subListItems = subLinks.map(function (subLink, key) {
 	                    return _react2.default.createElement(
 	                        'li',
-	                        { className: 'sidebarLink-SubListItem', key: key },
+	                        { style: { 'fontSize': _this2.props.sidebarLinksProps.fontSize - 10 + 'px' }, className: 'sidebarLink-SubListItem', key: key },
 	                        _react2.default.createElement(
-	                            'a',
-	                            { className: 'anchorLinks', href: '#' },
-	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'SubLinks' },
+	                            'div',
+	                            { className: '' },
+	                            _this2.props.sidebarLinksProps.hasReactRouterLinks ? _react2.default.createElement(
+	                                _reactRouterDom.Link,
+	                                { className: 'subLinks anchorLinks', to: '#' },
 	                                _react2.default.createElement(
 	                                    'strong',
 	                                    null,
-	                                    subLink.linkName
+	                                    subLink.linkTo
+	                                )
+	                            ) : _react2.default.createElement(
+	                                'a',
+	                                { className: 'SubLinks anchorLinks', onClick: function onClick() {
+	                                        return _this2.handleMainLinkClick(subLink);
+	                                    }, href: '#' },
+	                                _react2.default.createElement(
+	                                    'strong',
+	                                    null,
+	                                    subLink.subLink
 	                                )
 	                            )
 	                        )
@@ -23812,7 +23932,7 @@
 	    }, {
 	        key: 'getlinks',
 	        value: function getlinks(linkItems) {
-	            var _this2 = this;
+	            var _this3 = this;
 	
 	            var links = linkItems;
 	            var listItems = links.map(function (link, key) {
@@ -23824,21 +23944,35 @@
 	                        { className: 'sidebarLink-MainListItem' },
 	                        _react2.default.createElement(
 	                            'div',
-	                            { style: { 'fontSize': _this2.props.fontSize - 10 + 'px' }, className: 'MainLinksAndExpandparent' },
+	                            { style: { 'fontSize': _this3.props.sidebarLinksProps.fontSize - 4 + 'px' }, className: 'MainLinksAndExpandparent' },
 	                            link.subLinks.length ? _react2.default.createElement(
 	                                'a',
 	                                { className: 'expandSubMenuIcon', href: '#', onClick: function onClick() {
-	                                        return _this2.expandSubMenu(key);
+	                                        return _this3.expandSubMenu(key);
 	                                    } },
 	                                _react2.default.createElement('span', { className: 'glyphicon glyphicon-menu-right' })
 	                            ) : '',
-	                            _react2.default.createElement(
+	                            _this3.props.sidebarLinksProps.hasReactRouterLinks ? _react2.default.createElement(
 	                                _reactRouterDom.Link,
-	                                { className: 'MainLinks anchorLinks', to: '/india' },
-	                                'name'
+	                                { className: 'MainLinks anchorLinks', to: '#' },
+	                                _react2.default.createElement(
+	                                    'strong',
+	                                    null,
+	                                    link.mainLink
+	                                )
+	                            ) : _react2.default.createElement(
+	                                'a',
+	                                { className: 'MainLinks anchorLinks', onClick: function onClick() {
+	                                        return _this3.handleMainLinkClick(link);
+	                                    }, href: '#' },
+	                                _react2.default.createElement(
+	                                    'strong',
+	                                    null,
+	                                    link.mainLink
+	                                )
 	                            )
 	                        ),
-	                        _this2.getSubLinks(link.subLinks, key)
+	                        _this3.getSubLinks(link.subLinks, key)
 	                    )
 	                );
 	            });
@@ -23854,21 +23988,7 @@
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'sidebarLinks' },
-	                _react2.default.createElement(
-	                    _reactRouterDom.Link,
-	                    { className: 'MainLinks anchorLinks', to: '/india' },
-	                    'name'
-	                ),
-	                _react2.default.createElement(
-	                    'h2',
-	                    null,
-	                    _react2.default.createElement(
-	                        'strong',
-	                        null,
-	                        'QUICK LINKS'
-	                    )
-	                ),
-	                this.getlinks(this.props.dataForLinks)
+	                this.getlinks(this.props.sidebarLinksProps.dataForLinks)
 	            );
 	        }
 	    }]);
@@ -23924,7 +24044,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".sidebarLinks {\n  height: auto;\n  width: auto; }\n\n.sidebarLink-MainList {\n  list-style: none;\n  padding: 0px; }\n\n.sidebarLink-MainListItem {\n  height: auto;\n  margin-bottom: 15px; }\n\n.sidebarLink-SubListItem {\n  list-style: none; }\n\n.SubLinks {\n  height: 35px;\n  width: 100%;\n  padding: 5px;\n  color: black;\n  text-decoration: none;\n  transition: all 1s;\n  cursor: pointer; }\n\n.SubLinks:hover, .SubLinks:focus, .SubLinks:active {\n  text-decoration: none;\n  background-color: black;\n  color: white;\n  transition: all 1s;\n  border-left: 5px solid black; }\n\n.anchorLinks:hover, .anchorLinks:focus, .anchorLinks:active {\n  text-decoration: none; }\n\nhr {\n  margin: 5px;\n  border-top: 1px solid lightgrey; }\n\n.MainLinks {\n  height: 45px;\n  width: 100%;\n  text-align: left;\n  padding: 10px 20px 10px 20px;\n  color: black;\n  cursor: pointer;\n  margin-left: 10px; }\n\n.MainLinks:hover, .MainLinks:focus, .MainLinks:active {\n  text-decoration: none;\n  background-color: black;\n  color: white;\n  transition: all 0.5s;\n  border-left: 20px solid black; }\n\n.MainLinksAndExpandparent:hover .MainLinksAndExpandparent:active .MainLinksAndExpandparent:focus {\n  background-color: black; }\n\n.sidebarLink-SubMenuList {\n  height: auto;\n  width: auto;\n  background-color: white;\n  transition: all 1s; }\n\n.expandSubMenuIcon {\n  color: black;\n  margin-left: 20px; }\n\n.expandSubMenuIcon:hover, .expandSubMenuIcon:focus, .expandSubMenuIcon:active {\n  color: black;\n  font-size: 25px;\n  transition: all 0.4s; }\n", ""]);
+	exports.push([module.id, ".sidebarLinks {\n  height: auto;\n  width: auto;\n  margin: 15px; }\n\n.sidebarLink-MainList {\n  list-style: none;\n  padding: 0px; }\n\n.sidebarLink-MainListItem {\n  height: auto;\n  margin-bottom: 15px; }\n\n.sidebarLink-SubListItem {\n  list-style: none;\n  padding: 10px 20px;\n  color: white; }\n\n.SubLinks.anchorLinks {\n  height: 35px;\n  width: 100%;\n  color: black;\n  font-size: 15px;\n  padding: 10px 20px 10px 20px;\n  text-decoration: none;\n  transition: all 1s;\n  cursor: pointer; }\n\n.anchorLinks:hover, .anchorLinks:focus, .anchorLinks:active {\n  text-decoration: none;\n  color: white;\n  background-color: black; }\n\n.SubLinks:hover, .SubLinks:focus, .SubLinks:active {\n  text-decoration: none;\n  background-color: black;\n  color: white;\n  transition: all 0.5s;\n  border-left: 5px solid black; }\n  .SubLinks:hover .anchorLinks, .SubLinks:focus .anchorLinks, .SubLinks:active .anchorLinks {\n    color: white;\n    font-size: 15px; }\n\nhr {\n  margin: 5px;\n  border-top: 1px solid lightgrey; }\n\n.MainLinks {\n  height: 45px;\n  width: 100%;\n  text-align: left;\n  padding: 10px 20px 10px 20px;\n  color: black;\n  cursor: pointer;\n  margin-left: 10px; }\n\n.MainLinks:hover, .MainLinks:focus, .MainLinks:active {\n  text-decoration: none;\n  background-color: black;\n  color: white;\n  transition: all 0.5s;\n  border-left: 25px solid black; }\n\n.MainLinksAndExpandparent:hover .MainLinksAndExpandparent:active .MainLinksAndExpandparent:focus {\n  background-color: black; }\n\n.sidebarLink-SubMenuList {\n  height: auto;\n  width: auto;\n  background-color: white;\n  transition: all 1s;\n  margin: 10px 0px 15px 20px; }\n\n.expandSubMenuIcon {\n  color: black;\n  margin-left: 20px; }\n\n.expandSubMenuIcon:hover, .expandSubMenuIcon:focus, .expandSubMenuIcon:active {\n  color: black;\n  transition: all 0.4s; }\n", ""]);
 	
 	// exports
 
@@ -27542,9 +27662,9 @@
 
 /***/ }),
 /* 237 */
-/*!***********************************************!*\
-  !*** ./src/app/components/SidebarContent.jsx ***!
-  \***********************************************/
+/*!***************************************************!*\
+  !*** ./src/app/components/sidebarDescription.jsx ***!
+  \***************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27567,43 +27687,30 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var SidebarContent = function (_Component) {
-	    _inherits(SidebarContent, _Component);
+	var SidebarDescription = function (_Component) {
+	    _inherits(SidebarDescription, _Component);
 	
-	    function SidebarContent() {
-	        _classCallCheck(this, SidebarContent);
+	    function SidebarDescription() {
+	        _classCallCheck(this, SidebarDescription);
 	
-	        return _possibleConstructorReturn(this, (SidebarContent.__proto__ || Object.getPrototypeOf(SidebarContent)).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (SidebarDescription.__proto__ || Object.getPrototypeOf(SidebarDescription)).apply(this, arguments));
 	    }
 	
-	    _createClass(SidebarContent, [{
+	    _createClass(SidebarDescription, [{
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                null,
-	                _react2.default.createElement(
-	                    'h2',
-	                    null,
-	                    _react2.default.createElement(
-	                        'strong',
-	                        null,
-	                        'DESCRIPTION'
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'blockquote',
-	                    { style: { 'fontSize': this.props.fontSize - 20 + 'px' } },
-	                    ' hi all , this is react-responsive-sidebar-menu Features involved: * responsible with screen size * customisable color * all links will support both anchor tags href and Link for react router * customisable font-size and color * provides onClick function to decide which link clicked * user profile pic , name and short info Features involved: * responsible with screen size * customisable color * all links will support both anchor tags href and Link for react router * customisable font-size and color * provides onClick function to decide which link clicked * user profile pic , name and short info'
-	                )
+	                { style: { 'fontSize': this.props.sidebarContentProps.fontSize - 5, 'textAlign': 'center' } },
+	                this.props.sidebarContentProps.descriptionContentHTML
 	            );
 	        }
 	    }]);
 	
-	    return SidebarContent;
+	    return SidebarDescription;
 	}(_react.Component);
 	
-	exports.default = SidebarContent;
+	exports.default = SidebarDescription;
 
 /***/ }),
 /* 238 */
@@ -27626,10 +27733,6 @@
 	
 	__webpack_require__(/*! ./styles/sidebarProfile.scss */ 239);
 	
-	var _profilePic = __webpack_require__(/*! ../../images/profilePic.jpg */ 241);
-	
-	var _profilePic2 = _interopRequireDefault(_profilePic);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -27637,6 +27740,8 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	//import profilePic from '../../images/profilePic.jpg';
 	
 	var SidebarProfile = function (_Component) {
 	    _inherits(SidebarProfile, _Component);
@@ -27667,7 +27772,7 @@
 	                'height': '100%',
 	                'width': '100%'
 	            };
-	            return _react2.default.createElement(
+	            if (this.props.SidebarProfileProps.profileVisible) return _react2.default.createElement(
 	                'div',
 	                { className: 'sidebarProfile' },
 	                _react2.default.createElement(
@@ -27675,15 +27780,15 @@
 	                    { className: 'sidebarProfile-profileImage' },
 	                    _react2.default.createElement('img', { onClick: this.toggleImageView,
 	                        className: 'sidebarProfile-profileImage-image ' + (this.state.imageFullView ? 'fullView' : 'img-circle'),
-	                        src: _profilePic2.default,
+	                        src: this.props.SidebarProfileProps.profileImage,
 	                        alt: 'profile picture' }),
 	                    !this.state.imageFullView && _react2.default.createElement(
 	                        'div',
-	                        { style: { 'fontSize': this.props.fontSize - 15 + 'px' }, className: 'sidebarProfile-userName' },
-	                        'Viresh Nete'
+	                        { style: { 'fontSize': this.props.SidebarProfileProps.fontSize + 'px' }, className: 'sidebarProfile-userName' },
+	                        this.props.SidebarProfileProps.ProfileName
 	                    )
 	                )
-	            );
+	            );else return null;
 	        }
 	    }]);
 	
@@ -27745,17 +27850,6 @@
 
 /***/ }),
 /* 241 */
-/*!***********************************!*\
-  !*** ./src/images/profilePic.jpg ***!
-  \***********************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	module.exports = __webpack_require__.p + "src/images/]profilePic.jpg";
-
-/***/ }),
-/* 242 */
 /*!**********************************************!*\
   !*** ./src/app/components/SidebarFooter.jsx ***!
   \**********************************************/
@@ -27801,6 +27895,28 @@
 	}(_react.Component);
 	
 	exports.default = SidebarFooter;
+
+/***/ }),
+/* 242 */
+/*!***********************************!*\
+  !*** ./src/images/profilePic.jpg ***!
+  \***********************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	module.exports = __webpack_require__.p + "src/images/]profilePic.jpg";
+
+/***/ }),
+/* 243 */
+/*!****************************!*\
+  !*** ./src/images/kat.jpg ***!
+  \****************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	module.exports = __webpack_require__.p + "src/images/]kat.jpg";
 
 /***/ })
 /******/ ]);

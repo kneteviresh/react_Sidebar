@@ -1,8 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Sidebar from './components/Sidebar.jsx';
+import profileImage from '../images/kat.jpg';
 
 class App extends React.Component {
+
+
+    handleMenuItemClick(clickedLink){
+        console.log('clicked on ',clickedLink)
+    }
+
     render() {
         var dataForLinks =
             [
@@ -12,17 +19,17 @@ class App extends React.Component {
                     onClick: "this.handleClick()",
                     subLinks: [
                         {
-                            linkName: "link1",
+                            subLink: "link1",
                             linkTO: "www.google.com",
                             Click: "this.handleClick()"
                         },
                         {
-                            linkName: "link2",
+                            subLink: "link2",
                             linkTO: "www.google.com",
                             Click: "this.handleClick()"
                         },
                         {
-                            linkName: "link3",
+                            subLink: "link3",
                             linkTO: "www.google.com",
                             Click: "this.handleClick()"
                         }
@@ -34,17 +41,17 @@ class App extends React.Component {
                     onClick: "this.handleClick()",
                     subLinks: [
                         {
-                            linkName: "link1",
+                            subLink: "link1",
                             linkTO: "www.google.com",
                             Click: "this.handleClick()"
                         },
                         {
-                            linkName: "link2",
+                            subLink: "link2",
                             linkTO: "www.google.com",
                             Click: "this.handleClick()"
                         },
                         {
-                            linkName: "link3",
+                            subLink: "link3",
                             linkTO: "www.google.com",
                             Click: "this.handleClick()"
                         }
@@ -60,7 +67,7 @@ class App extends React.Component {
 
         return (
             <div>
-                <Sidebar dataForLinks={dataForLinks} />
+                <Sidebar onLinkItemClick={this.handleMenuItemClick} profileImage={profileImage} dataForLinks={dataForLinks} />
             </div>
         );
     }

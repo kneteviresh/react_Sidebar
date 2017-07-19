@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './styles/sidebarProfile.scss';
-import profilePic from '../../images/profilePic.jpg';
+//import profilePic from '../../images/profilePic.jpg';
 
 class SidebarProfile extends Component {
     constructor(props, context) {
@@ -28,7 +28,7 @@ class SidebarProfile extends Component {
                     <div className="sidebarProfile-profileImage">
                         <img onClick={this.toggleImageView}
                             className={`sidebarProfile-profileImage-image ${(this.state.imageFullView ? 'fullView' : 'img-circle')}`}
-                            src={profilePic}
+                            src={this.props.SidebarProfileProps.profileImage}
                             alt="profile picture" />
                         {/* <div className="imageClickMessage">click to expand</div> */}
                         {!this.state.imageFullView && <div style={{ 'fontSize': (this.props.SidebarProfileProps.fontSize) + 'px' }} className="sidebarProfile-userName">

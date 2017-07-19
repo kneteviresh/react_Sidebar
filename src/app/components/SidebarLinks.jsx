@@ -14,6 +14,11 @@ class SidebarLinks extends Component {
         this.expandSubMenu = this.expandSubMenu.bind(this);
     }
 
+    handleMainLinkClick(clickedLink){
+        if(this.props.sidebarLinksProps.onLinkItemClick)
+            this.props.sidebarLinksProps.onLinkItemClick(clickedLink)
+    }
+
     expandSubMenu(index) {
         var selectedSubMenu = this.state.firstChildSublink;
         if (selectedSubMenu[index] == true) {
@@ -37,8 +42,15 @@ class SidebarLinks extends Component {
         if (subLinks.length == 0) return;
         else {
             subListItems = subLinks.map((subLink, key) =>
-                <li style={{ 'fontSize': (this.props.fontSize - 10) + 'px' }} className="sidebarLink-SubListItem" key={key}>
-                    <a className="anchorLinks" href="#"><div className="SubLinks"><strong>{subLink.linkName}</strong></div></a>
+                <li style={{ 'fontSize': (this.props.sidebarLinksProps.fontSize - 10) + 'px' }} className="sidebarLink-SubListItem" key={key}>
+                    <div className="">
+                        {this.props.sidebarLinksProps.hasReactRouterLinks ?
+                            <Link className="subLinks anchorLinks" to='#' >
+                                <strong>{subLink.linkTo}</strong>
+                            </Link> :
+                            <a className="SubLinks anchorLinks" onClick={()=>this.handleMainLinkClick(subLink)} href="#"><strong>{subLink.subLink}</strong>
+                            </a>}
+                    </div>
                 </li>
             )
         }
@@ -53,17 +65,17 @@ class SidebarLinks extends Component {
         const listItems = links.map((link, key) =>
             <div key={key}>
                 <li className="sidebarLink-MainListItem" >
-                    <div style={{ 'fontSize': (this.props.fontSize - 4) + 'px' }} className="MainLinksAndExpandparent">
+                    <div style={{ 'fontSize': (this.props.sidebarLinksProps.fontSize - 4) + 'px' }} className="MainLinksAndExpandparent">
 
                         {link.subLinks.length ? <a className="expandSubMenuIcon" href="#" onClick={() => this.expandSubMenu(key)}>
                             <span className="glyphicon glyphicon-menu-right"></span>
                         </a> : ''}
 
-                        {this.props.hasReactRouterLinks ?
-                            <Link className="MainLinks anchorLinks" to='/india' >
+                        {this.props.sidebarLinksProps.hasReactRouterLinks ?
+                            <Link className="MainLinks anchorLinks" to='#' >
                                 <strong>{link.mainLink}</strong>
                             </Link> :
-                            <a className="MainLinks anchorLinks" href="www.google.com"><strong>{link.mainLink}</strong>
+                            <a className="MainLinks anchorLinks" onClick={()=>this.handleMainLinkClick(link)} href="#"><strong>{link.mainLink}</strong>
                             </a>}
                     </div>
                     {this.getSubLinks(link.subLinks, key)}
@@ -78,9 +90,7 @@ class SidebarLinks extends Component {
     render() {
         return (
             <div className="sidebarLinks">
-
-                <h2><strong>QUICK LINKS</strong></h2>
-                {this.getlinks(this.props.dataForLinks)}
+                {this.getlinks(this.props.sidebarLinksProps.dataForLinks)}
             </div>
         );
     }

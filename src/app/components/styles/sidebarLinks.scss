@@ -15,26 +15,35 @@
 
 .sidebarLink-SubListItem{
     list-style: none;
+    padding: 10px 20px;
+    color: white
 }
-.SubLinks{
+.SubLinks.anchorLinks{
     height:35px;
     width: 100%;
-    padding: 5px;
-    color:black;
+    color: black;
+    font-size: 15px;
+    padding: 10px 20px 10px 20px;
     text-decoration: none;
     transition: all 1s;
     cursor: pointer;
 }
+.anchorLinks:hover,.anchorLinks:focus,.anchorLinks:active{
+        text-decoration: none;
+        color: white;
+        background-color: black;
+}
+
 .SubLinks:hover,.SubLinks:focus,.SubLinks:active{
     text-decoration: none;
     background-color: black;
     color: white;
-    transition: all 1s;
+    transition: all 0.5s;
     border-left: 5px solid black;
-}
-
-.anchorLinks:hover,.anchorLinks:focus,.anchorLinks:active{
-    text-decoration: none;
+    .anchorLinks{
+        color:white;
+        font-size: 15px;
+    }
 }
 
 hr {
@@ -58,7 +67,7 @@ hr {
     background-color: black;
     color: white;
     transition: all 0.5s;
-    border-left: 20px solid black;
+    border-left: 25px solid black;
 }
 
 .MainLinksAndExpandparent:hover .MainLinksAndExpandparent:active .MainLinksAndExpandparent:focus{
@@ -79,8 +88,7 @@ hr {
     margin-left: 20px;
 }
 
-// .expandSubMenuIcon:hover,.expandSubMenuIcon:focus,.expandSubMenuIcon:active{
-//     color:black;
-//     font-size: 25px;
-//     transition: all 0.4s;
-// }
+.expandSubMenuIcon:hover,.expandSubMenuIcon:focus,.expandSubMenuIcon:active{
+    color:black;
+    transition: all 0.4s;
+}
