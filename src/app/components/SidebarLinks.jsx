@@ -17,24 +17,17 @@ class SidebarLinks extends Component {
     }
 
     handleMainLinkClick(clickedLink, e) {
-        //e.preventDefault();
-        //console.log('inside onclick', e)
-
         if (this.props.sidebarLinksProps.onLinkItemClick)
             this.props.sidebarLinksProps.onLinkItemClick(clickedLink)
-        debugger;
         return true;
     }
 
     expandSubMenu(index) {
         var selectedSubMenu = this.state.firstChildSublink;
         if (selectedSubMenu[index] == true) {
-            //selectedSubMenu.fill(true);
             selectedSubMenu[index] = false;
         }
         else {
-            //selectedSubMenu[index] = true;
-            //selectedSubMenu.fill(false);
             selectedSubMenu[index] = true;
         }
 

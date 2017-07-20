@@ -1,14 +1,14 @@
 {
-  "name": "myproductpromotions",
+  "name": "react-sliding-sidemenu",
   "version": "1.0.0",
-  "description": "",
+  "description": "Customisable Responsive sliding sidebar menu , can be easily intigrated within application.",
   "main": "index.js",
   "scripts": {
     "start": "npm run build",
     "build": "webpack -d && webpack-dev-server --content-base src/ --inline --hot --port 3005 --history-api-fallback",
     "build:prod": "webpack -p"
   },
-  "author": "Team Promotions",
+  "author": "Veeresh Nete",
   "license": "MIT",
   "dependencies": {
     "babel-cli": "^6.18.0",
@@ -20,16 +20,7 @@
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-0": "^6.16.0",
     "babel-preset-stage-2": "^6.22.0",
-    "chart.js": "^2.5.0",
-    "eslint": "^3.8.1",
-    "eslint-config-airbnb": "^12.0.0",
-    "eslint-plugin-import": "^2.0.1",
-    "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.4.1",
-    "html-minify-loader": "^1.1.0",
-    "html-webpack-plugin": "^2.22.0",
     "react": "^15.4.2",
-    "react-chartjs-2": "^2.0.5",
     "react-dom": "^15.4.2",
     "react-router-dom": "^4.1.2",
     "webpack": "^1.13.2",
@@ -39,7 +30,6 @@
     "css-loader": "^0.28.4",
     "file-loader": "^0.11.2",
     "node-sass": "^4.5.3",
-    "react-router": "^4.1.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2"
   }
