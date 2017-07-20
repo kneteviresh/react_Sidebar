@@ -23065,7 +23065,7 @@
 	    profileVisible: true,
 	    ProfileName: 'Viresh Nete',
 	    hasReactRouterLinks: false,
-	    descriptionVisible: false,
+	    descriptionVisible: true,
 	    expandIconStyle: 'menu-hamburger',
 	    headerBackgroundColor: 'white',
 	    sidebarTitle: 'React sliding sidebar',

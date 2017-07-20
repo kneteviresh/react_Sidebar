@@ -30,14 +30,14 @@
 }
 .anchorLinks:hover,.anchorLinks:focus,.anchorLinks:active{
         text-decoration: none;
-        color: white;
-        background-color: black;
+        //color: white;
+        //background-color: black;
 }
 
 .SubLinks:hover,.SubLinks:focus,.SubLinks:active{
     text-decoration: none;
-    background-color: black;
-    color: white;
+    //background-color: black;
+    //color: white;
     transition: all 0.5s;
     border-left: 5px solid black;
     .anchorLinks{
@@ -64,10 +64,9 @@ hr {
 
 .MainLinks:hover,.MainLinks:focus,.MainLinks:active{
     text-decoration: none;
-    background-color: black;
-    color: white;
+    color: black;
     transition: all 0.5s;
-    border-left: 25px solid black;
+    border-left: 15px solid black;
 }
 
 .MainLinksAndExpandparent:hover .MainLinksAndExpandparent:active .MainLinksAndExpandparent:focus{

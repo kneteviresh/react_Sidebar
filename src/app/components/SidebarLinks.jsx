@@ -48,9 +48,9 @@ class SidebarLinks extends Component {
                     <div className="">
                         {this.props.sidebarLinksProps.hasReactRouterLinks ?
                             <Link className="SubLinks anchorLinks" to='/dummy' >
-                                <strong>{subLink.subLink}</strong>
+                               {subLink.subLink}
                             </Link> :
-                            <a className="SubLinks anchorLinks" onClick={()=>this.handleMainLinkClick(subLink)} href="#"><strong>{subLink.subLink}</strong>
+                            <a className="SubLinks anchorLinks" onClick={()=>this.handleMainLinkClick(subLink)} href="#">{subLink.subLink}
                             </a>}
                     </div>
                 </li>
@@ -75,9 +75,9 @@ class SidebarLinks extends Component {
 
                         {this.props.sidebarLinksProps.hasReactRouterLinks ?
                             <Link className="MainLinks anchorLinks" to='/dummy' >
-                                <strong>{link.mainLink}</strong>
+                                {link.mainLink}
                             </Link> :
-                            <a className="MainLinks anchorLinks" onClick={()=>this.handleMainLinkClick(link)} href="/dummy"><strong>{link.mainLink}</strong>
+                            <a className="MainLinks anchorLinks" onClick={()=>this.handleMainLinkClick(link)} href="/dummy">{link.mainLink}
                             </a>}
                     </div>
                     {this.getSubLinks(link.subLinks, key)}

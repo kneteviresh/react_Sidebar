@@ -20,7 +20,7 @@ class Sidebar extends Component {
     static defaultProps = {
         top: 100,
         fontSize: 25,
-        fontStyle: 'dark',
+        fontStyle: 'Arial, Helvetica, sans-serif',
         contentColor: 'black',
         hoverColor: 'black',
         profileVisible: true,
@@ -74,18 +74,21 @@ class Sidebar extends Component {
 
         const sidebarHeaderProps = {
             fontSize: fontSize,
+            fontStyle:fontStyle,
             headerBackgroundColor: headerBackgroundColor,
             sidebarTitle: sidebarTitle
         };
 
         const sidebarContentProps = {
             fontSize: fontSize,
+            fontStyle:fontStyle,
             descriptionContent: descriptionContent,
             descriptionVisible:descriptionVisible
         }
 
         const SidebarProfileProps = {
             fontSize: fontSize,
+            fontStyle:fontStyle,
             profileVisible: profileVisible,
             ProfileName: ProfileName,
             profileImage: profileImage
@@ -95,6 +98,7 @@ class Sidebar extends Component {
         const sidebarLinksProps = {
             hasReactRouterLinks: hasReactRouterLinks,
             fontSize: fontSize,
+            fontStyle:fontStyle,
             dataForLinks: dataForLinks,
             onLinkItemClick: onLinkItemClick
         }

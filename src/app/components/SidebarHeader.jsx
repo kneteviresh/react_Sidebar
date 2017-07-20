@@ -6,6 +6,7 @@ class SidebarHeader extends Component {
     render() {
         var headerStyle={
             'fontSize':this.props.sidebarHeaderProps.fontSize+'px',
+            'fontFamily':this.props.sidebarHeaderProps.fontStyle,
             'backgroundColor':this.props.sidebarHeaderProps.headerBackgroundColor
         }
         return (
