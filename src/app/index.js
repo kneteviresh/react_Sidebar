@@ -1,16 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from './App.jsx';
-import { BrowserRouter, Route ,Switch} from 'react-router-dom';
-import Dummy from './dummyPage.jsx';
+import Sidebar from './components/Sidebar.jsx';
+import profileImage from '../images/profilePic.jpg';
 
 
 ReactDOM.render(
-    <BrowserRouter>
-        <Switch>
-            <Route exact path='/' component={App} />
-            <Route path='/dummy' component={Dummy} />
-        </Switch>
-    </BrowserRouter>,
+<Sidebar />,
     document.getElementById('app')
 );

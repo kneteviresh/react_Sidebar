@@ -63,10 +63,14 @@ class SidebarLinks extends Component {
                     }}>
 
                         {this.props.sidebarLinksProps.hasReactRouterLinks ?
-                            <Link className="childLinks anchorLinks" to='/dummy' >
+                            <Link style={{
+                                'color': this.props.sidebarLinksProps.textColor
+                            }} className="childLinks anchorLinks" to='/dummy' >
                                 {childLink.childLink}
                             </Link> :
-                            <a className="childLinks anchorLinks" href="/dummy" onClick={(e) => this.handleMainLinkClick(chilldLink, e)} >{childLink.childLink}
+                            <a style={{
+                                'color': this.props.sidebarLinksProps.textColor
+                            }} className="childLinks anchorLinks" href="/dummy" onClick={(e) => this.handleMainLinkClick(chilldLink, e)} >{childLink.childLink}
                             </a>}
                     </div>
                 </li>
@@ -88,18 +92,24 @@ class SidebarLinks extends Component {
                         'fontSize': (this.props.sidebarLinksProps.fontSize - 4) + 'px',
                         'fontFamily': this.props.sidebarLinksProps.fontStyle
                     }} className="MainLinksAndExpandparent">
-                        {subLink.childLinks.length ? <a className="expandChildMenuIcon" href="#" onClick={() => this.expandChildMenu(key)}>
+                        {subLink.childLinks.length ? <a style={{
+                            'color': this.props.sidebarLinksProps.textColor
+                        }} className="expandChildMenuIcon" href="#" onClick={() => this.expandChildMenu(key)}>
                             <span className="glyphicon glyphicon-menu-right"></span>
                         </a> : ''}
 
                         {this.props.sidebarLinksProps.hasReactRouterLinks ?
-                            <Link className="SubLinks anchorLinks" to='/dummy' >
+                            <Link style={{
+                                'color': this.props.sidebarLinksProps.textColor
+                            }} className="SubLinks anchorLinks" to='/dummy' >
                                 {subLink.subLink}
                             </Link> :
-                            <a className="SubLinks anchorLinks" href="/dummy" onClick={(e) => this.handleMainLinkClick(subLink, e)} >{subLink.subLink}
+                            <a style={{
+                                'color': this.props.sidebarLinksProps.textColor
+                            }} className="SubLinks anchorLinks" href="/dummy" onClick={(e) => this.handleMainLinkClick(subLink, e)} >{subLink.subLink}
                             </a>}
                     </div>
-                    {subLink.childLinks.length?this.getChildLinks(subLink.childLinks, key):null}
+                    {subLink.childLinks.length ? this.getChildLinks(subLink.childLinks, key) : null}
                 </li>
             )
         }
@@ -116,21 +126,28 @@ class SidebarLinks extends Component {
                 <li className="sidebarLink-MainListItem" >
                     <div style={{
                         'fontSize': (this.props.sidebarLinksProps.fontSize - 4) + 'px',
-                        'fontFamily': this.props.sidebarLinksProps.fontStyle
+                        'fontFamily': this.props.sidebarLinksProps.fontStyle,
+                        'color': this.props.sidebarLinksProps.textColor,
                     }} className="MainLinksAndExpandparent">
 
-                        {link.subLinks.length ? <a className="expandSubMenuIcon" href="#" onClick={() => this.expandSubMenu(key)}>
+                        {link.subLinks.length ? <a style={{
+                            'color': this.props.sidebarLinksProps.textColor
+                        }} className="expandSubMenuIcon" href="#" onClick={() => this.expandSubMenu(key)}>
                             <span className="glyphicon glyphicon-menu-right"></span>
                         </a> : ''}
 
                         {this.props.sidebarLinksProps.hasReactRouterLinks ?
-                            <Link className="MainLinks anchorLinks" to='/dummy' >
+                            <Link style={{
+                                'color': this.props.sidebarLinksProps.textColor
+                            }} className="MainLinks anchorLinks" to='/dummy' >
                                 {link.mainLink}
                             </Link> :
-                            <a className="MainLinks anchorLinks" onClick={(e) => this.handleMainLinkClick(link, e)} href="/dummy">{link.mainLink}
+                            <a style={{
+                                'color': this.props.sidebarLinksProps.textColor
+                            }} className="MainLinks anchorLinks" onClick={(e) => this.handleMainLinkClick(link, e)} href="/dummy">{link.mainLink}
                             </a>}
                     </div>
-                    {link.subLinks.length?this.getSubLinks(link.subLinks, key):null}
+                    {link.subLinks.length ? this.getSubLinks(link.subLinks, key) : null}
                 </li>
             </div>
         )

@@ -29,8 +29,11 @@ class SidebarProfile extends Component {
                             className={`sidebarProfile-profileImage-image ${(this.state.imageFullView ? 'fullView' : 'img-circle')}`}
                             src={this.props.SidebarProfileProps.profileImage}
                             alt="profile picture" />
-                        {!this.state.imageFullView && <div style={{ 'fontSize': (this.props.SidebarProfileProps.fontSize) + 'px',
-                        'fontFamily':this.props.SidebarProfileProps.fontStyle }} className="sidebarProfile-userName">
+                        {!this.state.imageFullView && <div style={{
+                            'fontSize': (this.props.SidebarProfileProps.fontSize) + 'px',
+                            'fontFamily': this.props.SidebarProfileProps.fontStyle,
+                            'color': this.props.SidebarProfileProps.textColor
+                        }} className="sidebarProfile-userName">
                             {this.props.SidebarProfileProps.ProfileName}
                         </div>}
                     </div>

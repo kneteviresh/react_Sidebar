@@ -18,22 +18,95 @@ class Sidebar extends Component {
     }
 
     static defaultProps = {
-        top: 100,
+        top: 0,
         fontSize: 25,
+        textColor: 'black',
         fontStyle: 'sans-serif', //'Arial, Helvetica, sans-serif',
         profileVisible: true,
-        ProfileName: 'Viresh Nete',
+        ProfileName: 'Veeresh Nete',
         hasReactRouterLinks: false,
         descriptionVisible: true,
         expandIconStyle: 'menu-hamburger',
         sidebarTitle: 'React sliding sidebar',
-        descriptionContent: <p>hello friends welcome to india from viresh from basavakalyan</p>,
+        descriptionContent: <p>
+            <b>click to expand profile image</b> <br />
+            React-sliding-sidemenu is a fully customisable, responsive overlay side menu sliding from left.
+            this is the description field which will be user passed free text or DOM element.
+            Side menu has following sections
+            <ul>
+                <li>Header</li>
+                <li>Profile</li>
+                <li>Description</li>
+                <li>Quick Links</li>
+            </ul>
+        </p>,
         orderOfContents: {
             profile: 1,
             description: 2,
             links: 3
         },
-        profileImage: defaultPic
+        profileImage: defaultPic,
+        dataForLinks:
+        [
+            {
+                mainLink: "Main Link 1",
+                href: "www.google.com",
+                subLinks: [
+                    {
+                        subLink: "Sub Link 1",
+                        href: "www.google.com",
+                        childLinks: [
+                            {
+                                childLink: 'Child Link 1',
+                                href: 'www.google.com'
+                            },
+                            {
+                                childLink: 'Child Link 2',
+                                href: 'www.google.com'
+                            }
+                        ]
+                    },
+                    {
+                        subLink: "Sub Link 2",
+                        href: "www.google.com",
+                        childLinks: []
+                    },
+                    {
+                        subLink: "SubLink 3",
+                        href: "www.google.com",
+                        childLinks: []
+                    }
+                ]
+            },
+            {
+                mainLink: "Main Link 2",
+                href: "www.google.com",
+                subLinks: [
+                    {
+                        subLink: "Sub Link 1",
+                        href: "www.google.com",
+                        childLinks: []
+                    },
+                    {
+                        subLink: "Sub Link 2",
+                        href: "www.google.com",
+                        childLinks: []
+                    },
+                    {
+                        subLink: "Sub Link 3",
+                        href: "www.google.com",
+                        childLinks: []
+                    }
+                ]
+            },
+            {
+                mainLink: "Main Link 3",
+                href: "www.google.com",
+                subLinks: []
+            }
+        ]
+
+
     }
 
     toggleSidebar() {
@@ -64,23 +137,25 @@ class Sidebar extends Component {
 
 
     render() {
-        var { top, fontSize, fontStyle, contentColor, hoverColor, profileVisible, profilePic,
+        var { top, fontSize, fontStyle, profileVisible, profilePic,
             ProfileName, hasReactRouterLinks, hasContentToshow, expandIconStyle,
-            headerBackgroundColor, sidebarTitle, descriptionContent, orderOfContents,
-            profileImage, dataForLinks, onLinkItemClick, descriptionVisible } = this.props;
+            sidebarTitle, descriptionContent, orderOfContents,
+            profileImage, dataForLinks, onLinkItemClick, descriptionVisible
+            , textColor } = this.props;
 
         const sidebarHeaderProps = {
             fontSize: fontSize,
             fontStyle: fontStyle,
-            headerBackgroundColor: headerBackgroundColor,
-            sidebarTitle: sidebarTitle
+            sidebarTitle: sidebarTitle,
+            textColor:textColor
         };
 
         const sidebarContentProps = {
             fontSize: fontSize,
             fontStyle: fontStyle,
             descriptionContent: descriptionContent,
-            descriptionVisible: descriptionVisible
+            descriptionVisible: descriptionVisible,
+            textColor:textColor
         }
 
         const SidebarProfileProps = {
@@ -88,7 +163,8 @@ class Sidebar extends Component {
             fontStyle: fontStyle,
             profileVisible: profileVisible,
             ProfileName: ProfileName,
-            profileImage: profileImage
+            profileImage: profileImage,
+            textColor:textColor
         }
 
 
@@ -97,7 +173,8 @@ class Sidebar extends Component {
             fontSize: fontSize,
             fontStyle: fontStyle,
             dataForLinks: dataForLinks,
-            onLinkItemClick: onLinkItemClick
+            onLinkItemClick: onLinkItemClick,
+            textColor:textColor
         }
 
         var validOrder = this.validateOrderOfContent(orderOfContents)
