@@ -8,16 +8,21 @@ class SidebarLinks extends Component {
         super(props, context);
         this.state = {
             firstChildSublink: [],
+            secondChildSublinks: []
         }
         this.getlinks = this.getlinks.bind(this);
         this.getSubLinks = this.getSubLinks.bind(this);
         this.expandSubMenu = this.expandSubMenu.bind(this);
+        this.expandChildMenu = this.expandChildMenu.bind(this);
     }
 
-    handleMainLinkClick(clickedLink,e){
-        console.log('inside onclick')
-        // if(this.props.sidebarLinksProps.onLinkItemClick)
-        //     this.props.sidebarLinksProps.onLinkItemClick(clickedLink)
+    handleMainLinkClick(clickedLink, e) {
+        //e.preventDefault();
+        //console.log('inside onclick', e)
+
+        if (this.props.sidebarLinksProps.onLinkItemClick)
+            this.props.sidebarLinksProps.onLinkItemClick(clickedLink)
+        debugger;
         return true;
     }
 
@@ -38,21 +43,70 @@ class SidebarLinks extends Component {
         });
     }
 
+    expandChildMenu(index) {
+        var selectedChildMenu = this.state.secondChildSublinks;
+        if (selectedChildMenu[index] == true) {
+            selectedChildMenu[index] = false
+        }
+        else {
+            selectedChildMenu[index] = true;
+        }
+
+        this.setState({
+            secondChildSublinks: selectedChildMenu
+        })
+    }
+
+    getChildLinks(childLinkItems, key) {
+        const childLinks = childLinkItems;
+        var childListItems;
+        if (childLinks.length == 0) return;
+        else {
+            childListItems = childLinks.map((childLink, key) =>
+                <li className="sidebarLink-childListItem" key={key}>
+                    <div style={{
+                        'fontSize': (this.props.sidebarLinksProps.fontSize - 5) + 'px',
+                        'fontFamily': this.props.sidebarLinksProps.fontStyle
+                    }}>
+
+                        {this.props.sidebarLinksProps.hasReactRouterLinks ?
+                            <Link className="childLinks anchorLinks" to='/dummy' >
+                                {childLink.childLink}
+                            </Link> :
+                            <a className="childLinks anchorLinks" href="/dummy" onClick={(e) => this.handleMainLinkClick(chilldLink, e)} >{childLink.childLink}
+                            </a>}
+                    </div>
+                </li>
+            )
+        }
+        return (
+            this.state.secondChildSublinks[key] && <ul className="sidebarLink-SubMenuList">{childListItems}</ul>
+        )
+    }
+
     getSubLinks(subLinksItems, key) {
         const subLinks = subLinksItems;
         var subListItems;
         if (subLinks.length == 0) return;
         else {
             subListItems = subLinks.map((subLink, key) =>
-                <li style={{ 'fontSize': (this.props.sidebarLinksProps.fontSize - 10) + 'px' }} className="sidebarLink-SubListItem" key={key}>
-                    <div className="">
+                <li className="sidebarLink-SubListItem" key={key}>
+                    <div style={{
+                        'fontSize': (this.props.sidebarLinksProps.fontSize - 4) + 'px',
+                        'fontFamily': this.props.sidebarLinksProps.fontStyle
+                    }} className="MainLinksAndExpandparent">
+                        {subLink.childLinks.length ? <a className="expandChildMenuIcon" href="#" onClick={() => this.expandChildMenu(key)}>
+                            <span className="glyphicon glyphicon-menu-right"></span>
+                        </a> : ''}
+
                         {this.props.sidebarLinksProps.hasReactRouterLinks ?
                             <Link className="SubLinks anchorLinks" to='/dummy' >
-                               {subLink.subLink}
+                                {subLink.subLink}
                             </Link> :
-                            <a className="SubLinks anchorLinks" onClick={()=>this.handleMainLinkClick(subLink)} href="#">{subLink.subLink}
+                            <a className="SubLinks anchorLinks" href="/dummy" onClick={(e) => this.handleMainLinkClick(subLink, e)} >{subLink.subLink}
                             </a>}
                     </div>
+                    {subLink.childLinks.length?this.getChildLinks(subLink.childLinks, key):null}
                 </li>
             )
         }
@@ -67,7 +121,10 @@ class SidebarLinks extends Component {
         const listItems = links.map((link, key) =>
             <div key={key}>
                 <li className="sidebarLink-MainListItem" >
-                    <div style={{ 'fontSize': (this.props.sidebarLinksProps.fontSize - 4) + 'px' }} className="MainLinksAndExpandparent">
+                    <div style={{
+                        'fontSize': (this.props.sidebarLinksProps.fontSize - 4) + 'px',
+                        'fontFamily': this.props.sidebarLinksProps.fontStyle
+                    }} className="MainLinksAndExpandparent">
 
                         {link.subLinks.length ? <a className="expandSubMenuIcon" href="#" onClick={() => this.expandSubMenu(key)}>
                             <span className="glyphicon glyphicon-menu-right"></span>
@@ -77,10 +134,10 @@ class SidebarLinks extends Component {
                             <Link className="MainLinks anchorLinks" to='/dummy' >
                                 {link.mainLink}
                             </Link> :
-                            <a className="MainLinks anchorLinks" onClick={()=>this.handleMainLinkClick(link)} href="/dummy">{link.mainLink}
+                            <a className="MainLinks anchorLinks" onClick={(e) => this.handleMainLinkClick(link, e)} href="/dummy">{link.mainLink}
                             </a>}
                     </div>
-                    {this.getSubLinks(link.subLinks, key)}
+                    {link.subLinks.length?this.getSubLinks(link.subLinks, key):null}
                 </li>
             </div>
         )

@@ -20,17 +20,14 @@ class Sidebar extends Component {
     static defaultProps = {
         top: 100,
         fontSize: 25,
-        fontStyle: 'Arial, Helvetica, sans-serif',
-        contentColor: 'black',
-        hoverColor: 'black',
+        fontStyle: 'sans-serif', //'Arial, Helvetica, sans-serif',
         profileVisible: true,
         ProfileName: 'Viresh Nete',
         hasReactRouterLinks: false,
-        descriptionVisible:true,
+        descriptionVisible: true,
         expandIconStyle: 'menu-hamburger',
-        headerBackgroundColor: 'white',
         sidebarTitle: 'React sliding sidebar',
-        descriptionContent: <p>hello friends welcome to india</p>,
+        descriptionContent: <p>hello friends welcome to india from viresh from basavakalyan</p>,
         orderOfContents: {
             profile: 1,
             description: 2,
@@ -70,25 +67,25 @@ class Sidebar extends Component {
         var { top, fontSize, fontStyle, contentColor, hoverColor, profileVisible, profilePic,
             ProfileName, hasReactRouterLinks, hasContentToshow, expandIconStyle,
             headerBackgroundColor, sidebarTitle, descriptionContent, orderOfContents,
-            profileImage, dataForLinks, onLinkItemClick,descriptionVisible } = this.props;
+            profileImage, dataForLinks, onLinkItemClick, descriptionVisible } = this.props;
 
         const sidebarHeaderProps = {
             fontSize: fontSize,
-            fontStyle:fontStyle,
+            fontStyle: fontStyle,
             headerBackgroundColor: headerBackgroundColor,
             sidebarTitle: sidebarTitle
         };
 
         const sidebarContentProps = {
             fontSize: fontSize,
-            fontStyle:fontStyle,
+            fontStyle: fontStyle,
             descriptionContent: descriptionContent,
-            descriptionVisible:descriptionVisible
+            descriptionVisible: descriptionVisible
         }
 
         const SidebarProfileProps = {
             fontSize: fontSize,
-            fontStyle:fontStyle,
+            fontStyle: fontStyle,
             profileVisible: profileVisible,
             ProfileName: ProfileName,
             profileImage: profileImage
@@ -98,7 +95,7 @@ class Sidebar extends Component {
         const sidebarLinksProps = {
             hasReactRouterLinks: hasReactRouterLinks,
             fontSize: fontSize,
-            fontStyle:fontStyle,
+            fontStyle: fontStyle,
             dataForLinks: dataForLinks,
             onLinkItemClick: onLinkItemClick
         }
@@ -112,7 +109,7 @@ class Sidebar extends Component {
             }
         }
         var expandButtonTop = top + 10;
-        var heightOfSidebar = 100-((top*100)/window.innerHeight);
+        var heightOfSidebar = 100 - ((top * 100) / window.innerHeight);
         return (
             <div>
                 <div style={{ 'top': expandButtonTop + 'px' }} className={`expandIcon ${(!this.state.isSidebarVisible) && 'show'}`}>
@@ -120,22 +117,22 @@ class Sidebar extends Component {
                         <span className={`glyphicon glyphicon-${expandIconStyle}`}></span>
                     </a>
                 </div>
-                <div style={{ 'top': top + 'px','height':heightOfSidebar+'%' }} className={`sidebarMenu ${(this.state.isSidebarVisible) && 'show'}`} >
+                <div style={{ 'top': top + 'px', 'height': heightOfSidebar + '%' }} className={`sidebarMenu ${(this.state.isSidebarVisible) && 'show'}`} >
                     <SidebarHeader sidebarHeaderProps={sidebarHeaderProps} closeSidebar={this.toggleSidebar} >
                     </SidebarHeader>
-                    
+
                     {orderOfContents.profile == 1 ? <SidebarProfile SidebarProfileProps={SidebarProfileProps}></SidebarProfile> :
                         orderOfContents.description == 1 ? <SidebarDescription sidebarContentProps={sidebarContentProps}>
                         </SidebarDescription> :
                             <SidebarLinks sidebarLinksProps={sidebarLinksProps}>
                             </SidebarLinks>}
-                    
+
                     {orderOfContents.profile == 2 ? <SidebarProfile SidebarProfileProps={SidebarProfileProps}></SidebarProfile> :
                         orderOfContents.description == 2 ? <SidebarDescription sidebarContentProps={sidebarContentProps}>
                         </SidebarDescription> :
                             <SidebarLinks sidebarLinksProps={sidebarLinksProps}>
                             </SidebarLinks>}
-                    
+
                     {orderOfContents.profile == 3 ? <SidebarProfile SidebarProfileProps={SidebarProfileProps}></SidebarProfile> :
                         orderOfContents.description == 3 ? <SidebarDescription sidebarContentProps={sidebarContentProps}>
                         </SidebarDescription> :

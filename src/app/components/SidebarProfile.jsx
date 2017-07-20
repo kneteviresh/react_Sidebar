@@ -31,7 +31,8 @@ class SidebarProfile extends Component {
                             src={this.props.SidebarProfileProps.profileImage}
                             alt="profile picture" />
                         {/* <div className="imageClickMessage">click to expand</div> */}
-                        {!this.state.imageFullView && <div style={{ 'fontSize': (this.props.SidebarProfileProps.fontSize) + 'px' }} className="sidebarProfile-userName">
+                        {!this.state.imageFullView && <div style={{ 'fontSize': (this.props.SidebarProfileProps.fontSize) + 'px',
+                        'fontFamily':this.props.SidebarProfileProps.fontStyle }} className="sidebarProfile-userName">
                             {this.props.SidebarProfileProps.ProfileName}
                         </div>}
                     </div>

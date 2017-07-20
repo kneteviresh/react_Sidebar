@@ -7,60 +7,66 @@ class App extends React.Component {
 
 
     handleMenuItemClick(clickedLink) {
-        console.log('clicked on ', clickedLink)
+        console.log('clicked link ', clickedLink);
     }
 
     render() {
         var dataForLinks =
             [
                 {
-                    mainLink: "Product Hierarchy",
+                    mainLink: "Main Link 1",
                     href: "www.google.com",
-                    onClick: "this.handleClick()",
                     subLinks: [
                         {
-                            subLink: "link1",
-                            linkTO: "www.google.com",
-                            Click: "this.handleClick()"
+                            subLink: "Sub Link 1",
+                            href: "www.google.com",
+                            childLinks: [
+                                {
+                                    childLink: 'Child Link 1',
+                                    href: 'www.google.com'
+                                },
+                                {
+                                    childLink: 'Child Link 2',
+                                    href: 'www.google.com'
+                                }
+                            ]
                         },
                         {
-                            subLink: "link2",
-                            linkTO: "www.google.com",
-                            Click: "this.handleClick()"
+                            subLink: "Sub Link 2",
+                            href: "www.google.com",
+                            childLinks:[]
                         },
                         {
-                            subLink: "link3",
-                            linkTO: "www.google.com",
-                            Click: "this.handleClick()"
+                            subLink: "SubLink 3",
+                            href: "www.google.com",
+                            childLinks:[]
                         }
                     ]
                 },
                 {
-                    mainLink: "tpnb",
+                    mainLink: "Main Link 2",
                     href: "www.google.com",
-                    onClick: "this.handleClick()",
                     subLinks: [
                         {
-                            subLink: "link1",
-                            linkTO: "www.google.com",
-                            Click: "this.handleClick()"
+                            subLink: "Sub Link 1",
+                            href: "www.google.com",
+                            childLinks:[]
                         },
                         {
-                            subLink: "link2",
-                            linkTO: "www.google.com",
-                            Click: "this.handleClick()"
+                            subLink: "Sub Link 2",
+                            href: "www.google.com",
+                            childLinks:[]
                         },
                         {
-                            subLink: "link3",
-                            linkTO: "www.google.com",
-                            Click: "this.handleClick()"
+                            subLink: "Sub Link 3",
+                            href: "www.google.com",
+                            childLinks:[]
                         }
                     ]
                 },
                 {
-                    mainLink: "Search by supplier",
+                    mainLink: "Main Link 3",
                     href: "www.google.com",
-                    onClick: "this.handleClick()",
                     subLinks: []
                 }
             ]

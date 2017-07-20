@@ -15,19 +15,35 @@
 
 .sidebarLink-SubListItem{
     list-style: none;
-    padding: 10px 20px;
+    padding: 5px 10px;
     color: white
+}
+
+.sidebarLink-childListItem{
+    height: auto;
+    margin: 10px;
 }
 .SubLinks.anchorLinks{
     height:35px;
     width: 100%;
     color: black;
-    font-size: 15px;
-    padding: 10px 20px 10px 20px;
+    padding: 5px 10px 5px 10px;
+    text-decoration: none;
+    transition: all 1s;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.childLinks.anchorLinks{
+    height:25px;
+    width: 100%;
+    color: black;
+    padding: 5px 10px 5px 10px;
     text-decoration: none;
     transition: all 1s;
     cursor: pointer;
 }
+
 .anchorLinks:hover,.anchorLinks:focus,.anchorLinks:active{
         text-decoration: none;
         //color: white;
@@ -46,6 +62,16 @@
     }
 }
 
+.childLinks:hover,.childLinks:focus,.childLinks:active{
+    text-decoration: none;
+    transition: all 0.5s;
+    border-left: 5px solid black;
+    .anchorLinks{
+        color:white;
+        font-size: 15px;
+    }
+}
+
 hr {
     margin: 5px;
     border-top: 1px solid lightgrey;
@@ -55,7 +81,6 @@ hr {
     height: 45px;
     width: 100%;
     text-align: left;
-    //font-size: 25px;
     padding: 10px 20px 10px 20px;
     color: black;
     cursor: pointer;
@@ -78,13 +103,24 @@ hr {
     width: auto;
     background-color: white;
     transition: all 1s;
-    margin: 10px 0px 15px 20px;
+    margin: 4px;
 }
 
 .expandSubMenuIcon{
     color:black;
     //font-size: 15px;
     margin-left: 20px;
+}
+
+.expandChildMenuIcon{
+        color:black;
+    //font-size: 15px;
+    margin-left: 20px;
+    font-size: 18px;
+    &:hover,&:focus,&:active{
+        color:black;
+        transition: all 0.4s
+    }
 }
 
 .expandSubMenuIcon:hover,.expandSubMenuIcon:focus,.expandSubMenuIcon:active{
