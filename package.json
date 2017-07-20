@@ -8,6 +8,15 @@
     "build": "webpack -d && webpack-dev-server --content-base src/ --inline --hot --port 3005 --history-api-fallback",
     "build:prod": "webpack -p"
   },
+   "keywords": [
+    "sidebar",
+    "sidemenu",
+    "react sidemenu",
+    "react sidebar",
+    "sliding sidemenu",
+    "sliding sidebar",
+    "responsive sidebar"
+  ],
   "author": "Veeresh Nete",
   "license": "MIT",
   "dependencies": {

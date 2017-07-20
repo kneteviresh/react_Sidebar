@@ -5,7 +5,7 @@ import SidebarLinks from './SidebarLinks.jsx';
 import SidebarDescription from './sidebarDescription.jsx';
 import SidebarProfile from './SidebarProfile.jsx';
 import SidebarFooter from './SidebarFooter.jsx';
-import defaultPic from '../../images/profilePic.jpg';
+import defaultPic from './profilePic.jpg';
 
 
 class Sidebar extends Component {
