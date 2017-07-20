@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Sidebar from './components/Sidebar.jsx';
-import profileImage from '../images/kat.jpg';
+import profileImage from '../images/profilePic.jpg';
 
 class App extends React.Component {
 

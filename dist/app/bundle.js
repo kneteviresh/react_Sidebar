@@ -63,12 +63,21 @@
 	
 	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 197);
 	
+	var _dummyPage = __webpack_require__(/*! ./dummyPage.jsx */ 243);
+	
+	var _dummyPage2 = _interopRequireDefault(_dummyPage);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	_reactDom2.default.render(_react2.default.createElement(
 	    _reactRouterDom.BrowserRouter,
 	    null,
-	    _react2.default.createElement(_App2.default, null)
+	    _react2.default.createElement(
+	        _reactRouterDom.Switch,
+	        null,
+	        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: _App2.default }),
+	        _react2.default.createElement(_reactRouterDom.Route, { path: "/dummy", component: _dummyPage2.default })
+	    )
 	), document.getElementById('app'));
 
 /***/ }),
@@ -22780,9 +22789,9 @@
 	
 	var _Sidebar2 = _interopRequireDefault(_Sidebar);
 	
-	var _kat = __webpack_require__(/*! ../images/kat.jpg */ 243);
+	var _profilePic = __webpack_require__(/*! ../images/profilePic.jpg */ 242);
 	
-	var _kat2 = _interopRequireDefault(_kat);
+	var _profilePic2 = _interopRequireDefault(_profilePic);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -22853,7 +22862,7 @@
 	            return _react2.default.createElement(
 	                "div",
 	                null,
-	                _react2.default.createElement(_Sidebar2.default, { onLinkItemClick: this.handleMenuItemClick, profileImage: _kat2.default, dataForLinks: dataForLinks })
+	                _react2.default.createElement(_Sidebar2.default, { onLinkItemClick: this.handleMenuItemClick, profileImage: _profilePic2.default, dataForLinks: dataForLinks })
 	            );
 	        }
 	    }]);
@@ -22975,11 +22984,12 @@
 	                expandIconStyle = _props.expandIconStyle,
 	                headerBackgroundColor = _props.headerBackgroundColor,
 	                sidebarTitle = _props.sidebarTitle,
-	                descriptionContentHTML = _props.descriptionContentHTML,
+	                descriptionContent = _props.descriptionContent,
 	                orderOfContents = _props.orderOfContents,
 	                profileImage = _props.profileImage,
 	                dataForLinks = _props.dataForLinks,
-	                onLinkItemClick = _props.onLinkItemClick;
+	                onLinkItemClick = _props.onLinkItemClick,
+	                descriptionVisible = _props.descriptionVisible;
 	
 	
 	            var sidebarHeaderProps = {
@@ -22990,7 +23000,8 @@
 	
 	            var sidebarContentProps = {
 	                fontSize: fontSize,
-	                descriptionContentHTML: descriptionContentHTML
+	                descriptionContent: descriptionContent,
+	                descriptionVisible: descriptionVisible
 	            };
 	
 	            var SidebarProfileProps = {
@@ -23015,9 +23026,8 @@
 	                    links: 3
 	                };
 	            }
-	
 	            var expandButtonTop = top + 10;
-	
+	            var heightOfSidebar = 100 - top * 100 / window.innerHeight;
 	            return _react2.default.createElement(
 	                'div',
 	                null,
@@ -23032,26 +23042,11 @@
 	                ),
 	                _react2.default.createElement(
 	                    'div',
-	                    { style: { 'top': top + 'px' }, className: 'sidebarMenu ' + (this.state.isSidebarVisible && 'show') },
+	                    { style: { 'top': top + 'px', 'height': heightOfSidebar + '%' }, className: 'sidebarMenu ' + (this.state.isSidebarVisible && 'show') },
 	                    _react2.default.createElement(_SidebarHeader2.default, { sidebarHeaderProps: sidebarHeaderProps, closeSidebar: this.toggleSidebar }),
-	                    _react2.default.createElement('hr', null),
-	                    orderOfContents.profile == 1 ? _react2.default.createElement(_SidebarProfile2.default, { SidebarProfileProps: SidebarProfileProps }) : orderOfContents.description == 1 ? _react2.default.createElement(_sidebarDescription2.default, { sidebarContentProps: sidebarContentProps }) : _react2.default.createElement(
-	                        _SidebarLinks2.default,
-	                        { sidebarLinksProps: sidebarLinksProps },
-	                        _react2.default.createElement('hr', null)
-	                    ),
-	                    _react2.default.createElement('hr', null),
-	                    orderOfContents.profile == 2 ? _react2.default.createElement(_SidebarProfile2.default, { SidebarProfileProps: SidebarProfileProps }) : orderOfContents.description == 2 ? _react2.default.createElement(_sidebarDescription2.default, { sidebarContentProps: sidebarContentProps }) : _react2.default.createElement(
-	                        _SidebarLinks2.default,
-	                        { sidebarLinksProps: sidebarLinksProps },
-	                        _react2.default.createElement('hr', null)
-	                    ),
-	                    _react2.default.createElement('hr', null),
-	                    orderOfContents.profile == 3 ? _react2.default.createElement(_SidebarProfile2.default, { SidebarProfileProps: SidebarProfileProps }) : orderOfContents.description == 3 ? _react2.default.createElement(_sidebarDescription2.default, { sidebarContentProps: sidebarContentProps }) : _react2.default.createElement(
-	                        _SidebarLinks2.default,
-	                        { sidebarLinksProps: sidebarLinksProps },
-	                        _react2.default.createElement('hr', null)
-	                    ),
+	                    orderOfContents.profile == 1 ? _react2.default.createElement(_SidebarProfile2.default, { SidebarProfileProps: SidebarProfileProps }) : orderOfContents.description == 1 ? _react2.default.createElement(_sidebarDescription2.default, { sidebarContentProps: sidebarContentProps }) : _react2.default.createElement(_SidebarLinks2.default, { sidebarLinksProps: sidebarLinksProps }),
+	                    orderOfContents.profile == 2 ? _react2.default.createElement(_SidebarProfile2.default, { SidebarProfileProps: SidebarProfileProps }) : orderOfContents.description == 2 ? _react2.default.createElement(_sidebarDescription2.default, { sidebarContentProps: sidebarContentProps }) : _react2.default.createElement(_SidebarLinks2.default, { sidebarLinksProps: sidebarLinksProps }),
+	                    orderOfContents.profile == 3 ? _react2.default.createElement(_SidebarProfile2.default, { SidebarProfileProps: SidebarProfileProps }) : orderOfContents.description == 3 ? _react2.default.createElement(_sidebarDescription2.default, { sidebarContentProps: sidebarContentProps }) : _react2.default.createElement(_SidebarLinks2.default, { sidebarLinksProps: sidebarLinksProps }),
 	                    _react2.default.createElement(_SidebarFooter2.default, { font: fontSize })
 	                )
 	            );
@@ -23062,7 +23057,7 @@
 	}(_react.Component);
 	
 	Sidebar.defaultProps = {
-	    top: 50,
+	    top: 100,
 	    fontSize: 25,
 	    fontStyle: 'dark',
 	    contentColor: 'black',
@@ -23070,11 +23065,11 @@
 	    profileVisible: true,
 	    ProfileName: 'Viresh Nete',
 	    hasReactRouterLinks: false,
-	    hasContentToshow: false,
+	    descriptionVisible: false,
 	    expandIconStyle: 'menu-hamburger',
 	    headerBackgroundColor: 'white',
 	    sidebarTitle: 'React sliding sidebar',
-	    descriptionContentHTML: _react2.default.createElement(
+	    descriptionContent: _react2.default.createElement(
 	        'p',
 	        null,
 	        'hello friends welcome to india'
@@ -23134,7 +23129,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".sidebarMenu {\n  position: absolute;\n  width: 400px;\n  left: -400px;\n  height: 100%;\n  background-color: white;\n  top: 100px;\n  transition: all 1s;\n  overflow: scroll; }\n\n.expandIcon {\n  position: absolute;\n  color: black;\n  left: 0px;\n  z-index: 5;\n  font-size: 35px;\n  display: none; }\n  .expandIcon a {\n    color: black; }\n\n.expandIcon.show {\n  display: block;\n  color: black; }\n\n.sidebarMenu.show {\n  box-shadow: 2px 2px 2px 2px lightgray;\n  left: 0; }\n  .sidebarMenu.show .expandIcon {\n    display: none; }\n", ""]);
+	exports.push([module.id, ".sidebarMenu {\n  position: absolute;\n  width: 400px;\n  left: -400px;\n  height: 100%;\n  background-color: white;\n  top: 100px;\n  transition: all 1s;\n  overflow: scroll; }\n\n.expandIcon {\n  position: absolute;\n  color: black;\n  left: 0px;\n  z-index: 5;\n  font-size: 35px;\n  display: none; }\n  .expandIcon a {\n    color: black; }\n\n@media only screen and (max-width: 400px) {\n  .sidebarMenu.show {\n    width: 100%; } }\n\n.expandIcon.show {\n  display: block;\n  color: black; }\n\n.sidebarMenu.show {\n  box-shadow: 2px 2px 2px 2px lightgray;\n  left: 0; }\n  .sidebarMenu.show .expandIcon {\n    display: none; }\n", ""]);
 	
 	// exports
 
@@ -23753,7 +23748,8 @@
 	                            _react2.default.createElement('span', { className: 'glyphicon glyphicon-menu-left' })
 	                        )
 	                    )
-	                )
+	                ),
+	                _react2.default.createElement('hr', null)
 	            );
 	        }
 	    }]);
@@ -23864,8 +23860,11 @@
 	
 	    _createClass(SidebarLinks, [{
 	        key: 'handleMainLinkClick',
-	        value: function handleMainLinkClick(clickedLink) {
-	            if (this.props.sidebarLinksProps.onLinkItemClick) this.props.sidebarLinksProps.onLinkItemClick(clickedLink);
+	        value: function handleMainLinkClick(clickedLink, e) {
+	            console.log('inside onclick');
+	            // if(this.props.sidebarLinksProps.onLinkItemClick)
+	            //     this.props.sidebarLinksProps.onLinkItemClick(clickedLink)
+	            return true;
 	        }
 	    }, {
 	        key: 'expandSubMenu',
@@ -23901,11 +23900,11 @@
 	                            { className: '' },
 	                            _this2.props.sidebarLinksProps.hasReactRouterLinks ? _react2.default.createElement(
 	                                _reactRouterDom.Link,
-	                                { className: 'subLinks anchorLinks', to: '#' },
+	                                { className: 'SubLinks anchorLinks', to: '/dummy' },
 	                                _react2.default.createElement(
 	                                    'strong',
 	                                    null,
-	                                    subLink.linkTo
+	                                    subLink.subLink
 	                                )
 	                            ) : _react2.default.createElement(
 	                                'a',
@@ -23954,7 +23953,7 @@
 	                            ) : '',
 	                            _this3.props.sidebarLinksProps.hasReactRouterLinks ? _react2.default.createElement(
 	                                _reactRouterDom.Link,
-	                                { className: 'MainLinks anchorLinks', to: '#' },
+	                                { className: 'MainLinks anchorLinks', to: '/dummy' },
 	                                _react2.default.createElement(
 	                                    'strong',
 	                                    null,
@@ -23964,7 +23963,7 @@
 	                                'a',
 	                                { className: 'MainLinks anchorLinks', onClick: function onClick() {
 	                                        return _this3.handleMainLinkClick(link);
-	                                    }, href: '#' },
+	                                    }, href: '/dummy' },
 	                                _react2.default.createElement(
 	                                    'strong',
 	                                    null,
@@ -23988,7 +23987,8 @@
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'sidebarLinks' },
-	                this.getlinks(this.props.sidebarLinksProps.dataForLinks)
+	                this.getlinks(this.props.sidebarLinksProps.dataForLinks),
+	                _react2.default.createElement('hr', null)
 	            );
 	        }
 	    }]);
@@ -27699,11 +27699,12 @@
 	    _createClass(SidebarDescription, [{
 	        key: 'render',
 	        value: function render() {
-	            return _react2.default.createElement(
+	            if (this.props.sidebarContentProps.descriptionVisible) return _react2.default.createElement(
 	                'div',
 	                { style: { 'fontSize': this.props.sidebarContentProps.fontSize - 5, 'textAlign': 'center' } },
-	                this.props.sidebarContentProps.descriptionContentHTML
-	            );
+	                this.props.sidebarContentProps.descriptionContent,
+	                _react2.default.createElement('hr', null)
+	            );else return null;
 	        }
 	    }]);
 	
@@ -27787,7 +27788,8 @@
 	                        { style: { 'fontSize': this.props.SidebarProfileProps.fontSize + 'px' }, className: 'sidebarProfile-userName' },
 	                        this.props.SidebarProfileProps.ProfileName
 	                    )
-	                )
+	                ),
+	                _react2.default.createElement('hr', null)
 	            );else return null;
 	        }
 	    }]);
@@ -27909,14 +27911,59 @@
 
 /***/ }),
 /* 243 */
-/*!****************************!*\
-  !*** ./src/images/kat.jpg ***!
-  \****************************/
+/*!*******************************!*\
+  !*** ./src/app/dummyPage.jsx ***!
+  \*******************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
-	module.exports = __webpack_require__.p + "src/images/]kat.jpg";
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var DummyPage = function (_Component) {
+	    _inherits(DummyPage, _Component);
+	
+	    function DummyPage() {
+	        _classCallCheck(this, DummyPage);
+	
+	        return _possibleConstructorReturn(this, (DummyPage.__proto__ || Object.getPrototypeOf(DummyPage)).apply(this, arguments));
+	    }
+	
+	    _createClass(DummyPage, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'h1',
+	                    null,
+	                    'hello all welcome to india'
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return DummyPage;
+	}(_react.Component);
+	
+	exports.default = DummyPage;
 
 /***/ })
 /******/ ]);
